@@ -1,0 +1,1005 @@
+<!doctype html>
+<html>
+    <head>
+	<title></title>
+	<meta charset="utf-8" />
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+	<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
+	<!-- <script type="text/javascript" async
+	     src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+	     </script> -->
+	<!-- <script type="text/javascript" id="MathJax-script" async
+	     src="node_modules/mathjax/es5/tex-chtml.js">
+	     </script> -->
+	<script type="text/javascript" id="MathJax-script" async
+		src="node_modules/mathjax/es5/tex-chtml.js">
+	</script>
+	<script>
+	 let promise = Promise.resolve();  // Used to hold chain of typesetting calls
+
+	 function typeset() {
+	     promise = promise.then(() => {return MathJax.typesetPromise()})
+			      .catch((err) => console.log('Typeset failed: ' + err.message));
+	     return promise;
+	 }
+	</script>
+	<link rel="stylesheet" type="text/css" href="slides.css">
+	<link rel="stylesheet" type="text/css" href="theorem.css">
+	<link rel="stylesheet" href="highlight/styles/default.css">
+    </head>
+    <body>
+	<div class="cpt-slip">0</div>
+	<div class="presentation">
+	<!-- <div id="open-window">
+	     <div class="rotate-container">
+	     <div class="scale-container">
+	     <div class="universe movable" id="universe">
+	     <div class="fog"></div> -->
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!! ! -->
+			<!-- Slides du titre               ! -->
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!! ! -->
+
+			<div class="slide permanent" id="beamer-title" pos-x="0.5" pos-y="0.5" scale="1" rotate="0" delay="0">
+			    <!-- <div class="slide-body-container"> -->
+				<img id="titre" src="slides.svg"/>
+				<!-- </div> -->
+			</div>
+			<div class="slide permanent" id="title" pos-x="0.5" pos-y="1.5" scale="1" rotate="0" delay="0">
+			    <!-- <div class="titre">Le Théorème de Hindman</div> -->
+			    <div class="slide-body-container">
+				<style>
+				 .section {
+				     position: absolute;
+				 }
+				</style>
+				
+				<div style="position:absolute; white-space: nowrap" class="calcul main-title">Infinite Time Computation</div> <div class="I invisible section main-title">I</div>
+				<div style="position:absolute; white-space: nowrap" class="aleat main-title">Algorithmic randomness</div> <div class="II invisible section main-title">II</div>
+				<div style="position:absolute; white-space: nowrap" class="reverse main-title">Reverse Mathematic</div> <div class="III invisible section main-title">III</div>
+				<div class="main main-title"><span class="calcul2" style="visibility:hidden; white-space: nowrap">Infinite Time Computation</span> in <span style="visibility:hidden; white-space: nowrap" class="aleat2">Algorithmic Randomness</span> and <span style="visibility:hidden; white-space: nowrap" class="reverse2">Reverse Mathematic</span>.</div>
+			    </div>
+			</div>
+			
+
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!! ! -->
+			<!-- Slides d'intro sur le calcul  ! -->
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!! ! -->
+
+			<div class="slide permanent" id="cles" pos-x="2" pos-y="0.5" scale="1" rotate="0" delay="1">
+			    <div class="titre">Basics</div>
+			    <div class="slide-body-container">
+				<h1 style="text-align:center"> Links between computations and definability</h1>
+				<div class="math algo one">\(M\)</div> <div class="math def one">\(\{n\in\mathbb N:M(n)=1\}\)</div>
+				<div class="math def two">\(\{n\in\mathbb N:\phi(n)\}\)</div> <div class="math algo two">\(?\)</div>
+				<div style="margin-top:835px;visibility:hidden" class="theorem">For every set \(A\subseteq\mathbb N\), we have :
+				    <div class="concontainer">
+					<div class="before haut">\(A\) is \(\Delta^0_{n+1}\) definable</div> <div class="arrow haut">\(\Longleftrightarrow\)</div> <div class="after haut"> \(A\) is computable with oracle \(\emptyset^{(n)}\)</div>
+					<div class="before milieu">\(A\) is \(\Sigma^0_{n+1}\) definable</div> <div class="arrow milieu">\(\Longleftrightarrow\)</div> <div class="after milieu"> \(A\) is computably enumerable with oracle \(\emptyset^{(n)}\)</div>
+					<div class="before bas">\(A\) is \(\Pi^0_{n+1}\) definable</div> <div class="arrow bas">\(\Longleftrightarrow\)</div> <div class="after bas"> \(A\) is co-computably enumerable with oracle \(\emptyset^{(n)}\)</div>
+				    </div>
+				    <!-- \[A\text{ est }\Sigma^0_n\text{ définissable}\Longleftrightarrow A\text{ est calculatoirement énumérable avec oracle }\emptyset^{(n)}\]
+					 \[A\text{ est }\Delta^0_n\text{ définissable}\Longleftrightarrow A\text{ est co-calculatoirement énumérable avec oracle }\emptyset^{(n)}\] -->
+				</div>
+				<!-- <div class="theorem">
+				     <ul>
+				     <li>Un ensemble \(A\subseteq\mathbb N\) est <span class="emphasize">récursivement énumérable</span> s'il est \(\Sigma^0_1\).</li>
+				     <li>Un ensemble \(A\subseteq\mathbb N\) est <span class="emphasize">co-récursivement énumérable</span> s'il est \(\Pi^0_1\).</li>
+				     <li>Un ensemble \(A\subseteq\mathbb N\) est <span class="emphasize">récursif</span> s'il est \(\Delta^0_1\).</li>
+				     </ul>
+				     </div> -->
+				<div class="h0 cm1">
+				    These links allow to use computability theory in other domains of mathematical logic:
+				    <ul>
+		    			<li><em>Proof Theory</em>, studying provability from the mathematical point of view.</li>
+					<li><em>Descriptive set theory</em>, studying the properties of the definable subsets of the reals.</li>
+				    </ul>
+				</div>
+			    </div>
+			</div>
+			
+			<div class="slide permanent no-flex" id="calcul" pos-x="1.75" pos-y="0.45" scale="0.45" rotate="0" delay="1">
+			    <!-- <div class="titre">Quelques clés pour suivre</div> -->
+			    <div class="slide-body-container">
+			      <h1 style="text-align: center; font-size:90px"> Computations </h1>
+				<div class="definition block" text="Informelle, calcul">
+				    A computation is the mechanical execution of a set of basic operation.
+				</div>
+				For instance, computers perform computations, as well as us when we sum integers. <!-- Par exemple, les ordinateurs effectuent des calculs. Les enfants aussi quand ils apprennent à poser des additions. -->
+				<div class="definition block h0 above-label">
+				    <ul>
+					<li>A function is computable if the image of an element can be known by a computation.<!-- Une fonction est calculable, si l'image d'un élément peut être connue à l'aide d'un calcul. --></li>
+					<li>A set of integers is computable if the belonging of an element to the set can be known by a computation. <!-- Un ensemble d'entiers est calculable, si l'appartenance à l'ensemble peut être connue à l'aide d'un calcul. --></li>
+				    </ul>
+				</div>
+				<div style="text-align:center;display:flex;align-items: center; justify-content: center; position: relative" class="h0">
+				    <div class="put-canal input-canal"></div>
+				    <div id="tm1-canvas-container" class="canvas-container" style="width:333px;height:264px;background:lightyellow;border:1px solid black;border-radius: 10px">
+					<canvas style="transform:scale(0.33); transform-origin:0 0" class="calcul-canvases" id="canvas-tm1" width="1000" height="800"></canvas>
+					<!-- <canvas style="transform:scale(0.33); transform-origin:0 0" class="calcul-canvases" id="canvas-gear" width="1000" height="800"></canvas> -->
+				    </div>
+				    <div class="put-canal output-canal"></div>
+				    <div class="movable input put">\(n\)</div>
+				    <div class="movable put output">\(f(n)\)</div>
+				    <div class="movable put output appartenance">\(n\in A\)</div>
+				    <div class="movable put output2 entier"></div>
+				    <!-- <div class="movable put output entier">\(64\)</div>
+					 <div class="movable put output entier">\(12\)</div>
+					 <div class="movable put output entier">\(6854\)</div> -->
+				    <div class="label f-calc">\(f\) computable</div>
+				    <div class="label recursif">\(A\) computable</div>
+				    <div class="label r-e">\(A\) computably enumerable</div>
+				</div>
+			    </div>
+			</div>
+
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!! ! -->
+			<!-- Slides sur lien definissabilité -->
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!! ! -->
+
+			<!-- <div class="slide" id="lien-definissabilite" pos-x="10" pos-y="2" scale="1" rotate="0" delay="0">
+			     <div class="titre">De fort liens entre computability et définissabilité</div>
+			     <div class="slide-body-container">
+			     <ul>
+			     <li>Un algorithme définit un objet.</li>
+			     <li>Réciproquement, une définition induit un algorithme.</li>
+			     </ul>
+			     <div class="theorem">\[A\text{ est définissable par une formule }\Delta^0_n\Longleftrightarrow A\text{ est calculable avec oracle }\emptyset^{(n)}\]</div>
+			     </div>
+			     </div> <!-- Fin slide Lien Définissabilité -->
+
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!! ! -->
+			<!-- Slides sur Définissabilité    ! -->
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!! ! -->
+
+			<div class="slide permanent" id="definissabilite" pos-x="2.25" pos-y="0.45" scale="0.45" rotate="0" delay="1">
+			    <!-- <div class="titre">Quelques clés pour suivre</div> -->
+			    <div class="slide-body-container">
+				<h1 style="text-align: center; font-size:90px">Definability</h1>
+				<ul>
+				    <li class="c0 emphasize">Proving a statement usually requires to define mathematical objects.<!-- Prouver un énoncé requiert généralement de définir des objets en mathématiques. --></li>
+				    <li class="h0 c1 emphasize">In Mathematical Logic, we are especially interested in formulas to define sets <!-- En logique mathématiques, nous nous interessons aux formules pour définir des ensembles --> <span style="font-style:italic">by comprehension</span>, and in their complexities.</li>
+				</ul>
+				<div class="definition h0 c2" title="Formulas and their complexities">
+				    <ul>
+					<li class="h0 c2 emphasize"> A formula is a set of symbols. In particular, "\(\forall\)" means "for all" and "\(\exists\)" means "there exists".</li>
+					<li class="h0 c3 emphasize"> The complexity of a formula is the number of alternation of quantifiers, with a \(\Pi\) when it begins by "\(\forall\)", and a \(\Sigma\) otherwise.</li>
+					<li class="h0 c4 emphasize"> The complexity of a set is the smallest complexity of a formula defining it by comprehension.</li>
+					<li class="h0 c4 emphasize"> The \(\Delta_n\) sets are those that are both \(\Pi_n\) and \(\Sigma_n\)</li>
+				    </ul>
+				</div>
+				<!-- <div style="height:300px;"></div> -->
+				<div class="example block" style="height: 150px; overflow: hidden">
+				    <!-- <div style="position: absolute; height: 200px;width:100%; overflow: hidden"> -->
+					<div class="example1" style="transition: left 0.5s; position:relative; top: 40px; left: 0;white-space:nowrap;width:100%;text-align:center">
+					    Let \(N\) be the smallest integer such that \(f(N)\gt 100\).
+					</div>
+					<!-- <div class="example2" style="transition: left 0.5s; position:relative; top: 40px; left: 150%;white-space:nowrap;width:100%;text-align:center">
+					     (Par l'absurde) Soit \(N\) le plus grand nombre premier.
+					     </div> -->
+					<div class="example3" style="transition: left 0.5s; position:relative; top: 40px; left: 150%;white-space:nowrap;width:100%;text-align:center">
+					    Let \(A\) be the set of even numbers.
+					</div>
+					<div class="example4" style="transition: left 0.5s; position:relative; top: 40px; left: 150%;white-space:nowrap;width:100%;text-align:center">
+					    Let \(T\) be the set of functions from \(\mathbb N\) to \(\mathbb N\) that are total.
+					</div>
+					<div class="example5" style="transition: left 0.5s; position:relative; top: 40px; left: 150%;white-space:nowrap;width:100%;text-align:center">
+					    The formula for "\(n\) is even" : \(\exists m, n=2m\)
+					</div>
+					<div class="example6" style="transition: left 0.5s; position:relative; top: 40px; left: 150%;white-space:nowrap;width:100%;text-align:center">
+					     The formula for "\(f\) is total" : \(\forall n\ \exists m, f(n)=m\)
+					</div>
+					<div class="example7" style="transition: left 0.5s; position:relative; top: 40px; left: 150%;white-space:nowrap;width:100%;text-align:center">
+					    \(\exists m, n=2m\) is \(\Sigma_1\) <span class="h0">while</span> \(\forall n\ \exists m, f(n)=m\) is \(\Pi_2\)
+					</div>
+					<div class="example8" style="transition: left 0.5s; position:relative; top: 40px; left: 150%;white-space:nowrap;width:100%;text-align:center">
+					    The set of even integers is at most \(\Sigma_1\) <span class="h0">while</span> The set of total functions is \(\Pi_2\)
+					</div>
+					<div class="example9" style="transition: left 0.5s; position:relative; top: 40px; left: 150%;white-space:nowrap;width:100%;text-align:center">
+					    <!-- L'ensemble des entiers pair est aussi \(\Pi_1\) par la formule \( \), il est donc \(\Delta_1\). -->
+					    Integer quantification : \(\Sigma^{\color{red}0}_n\) <br/> Set of integer quantification : \(\Sigma^{\color{red}1}_n\) 
+					</div>
+				    <!-- </div> -->
+				</div>
+			    </div>
+			</div> <!-- Fin slide Définissabilité -->
+			
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!! ! -->
+			<!-- Slides sur Hindman            ! -->
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!! ! -->
+			
+			<div class="slide" id="hindman-itself" pos-x="6.5" pos-y="0.5" scale="1" rotate="0" delay="1">
+			    <div class="titre">Hindman's Theorem</div>
+			    <div class="slide-body-container">
+				<div class="theorem" title="Hindman">
+				    <span class="forall">For all</span> <span class="color-word">coloring of the integers</span> in a finite number of colors, <span class="hach"><span class="exists">there exists</span> an infinite set</span> \(H\subseteq\mathbb N\) such that  <span class="sommes">the set of finite sums of elements from \(H\) is monochromatic</span>.
+				</div>
+				<div class="coloring" style="visibility:hidden">
+				    <span class="myexample">Example of coloring</span> of the integers <span class="list-color"></span> :
+				    <div class="number-container original" style="margin-top: 30px; text-align:center;">
+					<span class="number n0">0</span>
+					<span class="number n1">1</span>
+					<span class="number n2">2</span>
+					<span class="number n3">3</span>
+					<span class="number n4">4</span>
+					<span class="number n5">5</span>
+					<span class="number n6">6</span>
+					<span class="number n7">7</span>
+					<span class="number n8">8</span>
+					<span class="number n9">9</span>
+					<span class="number n10">10</span>
+					<span class="number n11">11</span>
+					<span class="number n12">12</span>
+					<span class="number n13">13</span>
+					<span class="number n14">14</span>
+					<span class="number n15">15</span>
+					<span class="number n16">16</span>
+					<span class="number n17">17</span>
+					<span class="number n18">18</span>
+					<span class="number n19">19</span>
+					...
+					<span class="number n20">45</span>
+					<span class="number n21">46</span>
+					...
+				    </div>
+
+				    <div class="number-container clone" style="position:relative;visibility:hidden; margin-top: 30px; text-align:center;">
+				    <div style="position: absolute; left: -30px; top:-5px">\(H=\)</div>
+					<span class="number n0">0</span>
+					<span class="number n1">1</span>
+					<span class="number n2" style="visibility:hidden">2</span>
+					<span class="number n3" style="visibility:hidden">3</span>
+					<span class="number n4" style="visibility:hidden">4</span>
+					<span class="number n5" style="visibility:hidden">5</span>
+					<span class="number n6">6</span>
+					<span class="number n7">7</span>
+					<span class="number n8" style="visibility:hidden">8</span>
+					<span class="number n9" style="visibility:hidden">9</span>
+					<span class="number n10">10</span>
+					<span class="number n11">11</span>
+					<span class="number n12" style="visibility:hidden">12</span>
+					<span class="number n13" style="visibility:hidden">13</span>
+					<span class="number n14" style="visibility:hidden">14</span>
+					<span class="number n15" style="visibility:hidden">15</span>
+					<span class="number n16">16</span>
+					<span class="number n17" style="visibility:hidden">17</span>
+					<span class="number n18">18</span>
+					<span class="number n19">19</span>
+					...
+					<span class="number n20" style="visibility:hidden">45</span>
+					<span class="number n21">46</span>
+					<span class="infinity">...</span>
+				    </div>
+
+				    <div class="sigma-container" style="position: absolute; left: auto; right:auto; bottom: 10%; opacity: 0; transition: opacity 1s, left 1s">Couleur de la somme : <span class="sigma" ></span>\(=\) <span class="sigma-value" ></span></div>
+				    <div class="number-container cloneclone" style="position:relative;visibility:hidden; margin-top: 30px; text-align:center;">
+					<span class="number n0" style="visibility:hidden">0</span>
+					<span class="number n1" style="visibility:hidden">1</span>
+					<span class="number n2" style="visibility:hidden">2</span>
+					<span class="number n3" style="visibility:hidden">3</span>
+					<span class="number n4" style="visibility:hidden">4</span>
+					<span class="number n5" style="visibility:hidden">5</span>
+					<span class="number n6" style="visibility:hidden">6</span>
+					<span class="number n7" style="visibility:hidden">7</span>
+					<span class="number n8" style="visibility:hidden">8</span>
+					<span class="number n9" style="visibility:hidden">9</span>
+					<span class="number n10" style="visibility:hidden">10</span>
+					<span class="number n11" style="visibility:hidden">11</span>
+					<span class="number n12" style="visibility:hidden">12</span>
+					<span class="number n13" style="visibility:hidden">13</span>
+					<span class="number n14" style="visibility:hidden">14</span>
+					<span class="number n15" style="visibility:hidden">15</span>
+					<span class="number n16" style="visibility:hidden">16</span>
+					<span class="number n17" style="visibility:hidden">17</span>
+					<span class="number n18" style="visibility:hidden">18</span>
+					<span class="number n19" style="visibility:hidden">19</span>
+					<span style="visibility:hidden">...</span>
+					<span class="number n20" style="visibility:hidden">45</span>
+					<span class="number n21" style="visibility:hidden">46</span>
+					<span style="visibility:hidden">...</span>
+				    </div>
+				</div>
+			    </div>
+			</div>
+			<div class="slide no-flex" id="hindman-rm" pos-x="6.5" pos-y="1.5" scale="1" rotate="0" delay="1">
+			    <!-- <div class="titre">Le Théorème de Hindman</div> -->
+			    <div class="slide-body-container">
+				<h1 label="h0 cm1">State of the art of the Reverse Mathematics of Hindman's theorem.</h1>
+				<!-- <div class="theorem" title="Hindman">
+				     Pour tout coloriage des entiers en un nombre fini de couleurs, il existe un ensemble infini \(H\subseteq\mathbb N\) tel que l'ensemble des sommes finies d'éléments de \(H\) est monochromatique.
+				     </div> -->
+				<div class="theorem h0 c1" title="Upper bound, Blass, Hirst, Simpson">
+				    <ul>
+					<li>Hindman's theorem is provable in \(\mathrm{ACA}_0^+\).</li>
+					<li>Every finite coloring \(c\) admits a homogeneous set \(H\) computable in the \(\omega+2\)-th Turing jump of \(c\).</li>
+				    </ul>
+				</div>				
+				<div class="theorem h0 c2" title="Lower bound, Blass, Hirst, Simpson">
+				    <ul>
+					<li>Hindman's theorem prove \(\mathrm{ACA}_0\).</li>
+					<li>There exists a computable finite coloring such that all homogeneous set \(H\) computes \(\emptyset'\).</li>
+				    </ul>
+				</div>
+				<div class="block h0 c3" title="Question">
+				    <ul>
+					<li>Is Hindman's theorem equivalent to \(\mathrm{ACA}_0\)? Or to \(\mathrm{ACA}_0^+\)? Or strictly in between?</li>
+					<li>Given a computable finite coloring, does there always exists an arithmetical solution? Or does there exists a finite computable coloring such that all homogeneous set computes \(\emptyset^{(\omega)}\) ?</li>
+				    </ul>
+				</div>
+			    </div>
+			</div>
+			<div class="slide no-flex" id="hindman-proof" pos-x="6.5" pos-y="2.7" scale="1" rotate="0" delay="1">
+			    <!-- <div class="titre">Le Théorème de Hindman</div> -->
+			    <div class="slide-body-container">
+				<h1> Idea of the proof </h1>
+				<!-- <h2> Preuves non effectives </h2> -->
+				<div class="number-container original"></div>
+				<!-- <div class="H">\(H=\{\)<span class="Helem H1"></span><span class="Helem H2"></span><span class="Helem H3"></span><span class="Helem H4"></span><span class="Helem H5"></span>\(...\}\)</div> -->
+				<div class="block h0 c1" title="Strategy"> Define a largeness notion such that we can prove: $$\text{There exists a large color}\tag{1}$$ $$A\text{ is large }\Longrightarrow \exists n\in A, A\cap A+n\text{ is large. }\tag{2}$$</div>
+				<div class="h0 c2">
+				    Possible largeness notions: 
+				    <ul class="largeness-container">
+					<li class="large-infini">Large ≡ infinite</li>
+					<li class="large-hindman h0 c3">Large ≡ contains \(\mathrm{FS}(X)\) for an infinite \(X\).</li>
+					<li class="large-baumgartner h0 c4">Large ≡ for some infinite subset \(X\), there is no solution for an other color inside \(\mathrm{FS}(X)\) (Baumgartner)</li>
+					<li class="large-ultrafilter h0 c5">Large ≡ belongs to an idempotent ultrafilter (Galvin-Glazer)</li>
+				    </ul>
+				</div>
+				<input style="position:absolute; top: 10px; right: 10px" class="refresh" type="button" value="Refresh"/>
+				<h2> Effectivizing the proof </h2>
+				The problem is that the \(n\) found in (2) is chosen in a very non uniform way between a finite number of possible candidate.
+				<div class="block h0 c6" title="Uniformly">
+				    <!-- $$A\text{ large }\Longrightarrow \exists n_0,\cdots, n_N\in A, \exists i\lt N, A\cap A+n_i\text{ est large. }\label{lab2}$$ -->
+				    $$A\text{ large }\Longrightarrow \exists {\color{maroon}n_0,\cdots, n_N}\in A, \bigcup_{i\lt N}A\cap A+{\color{maroon}n_i}\text{ est large. }$$
+				</div>
+				<div class="clone-container">
+				    <div class="number-container clone"></div>
+				    <!-- <div class="number-container clone"></div>
+					 <div class="number-container clone"></div>
+					 <div class="number-container clone"></div> -->
+				</div>
+				<div class="fm-def definition" title="Full-match, Towsner">A full-match for a coloring \(c\) is a couple \((F,S)\) where \(F\) is a finite set, and for every finite sum \(x\) of elements of \(S\), there exists \(a\in F\) such that \(c(a)=c(x)=c(a+x)\).</div>
+				<canvas class="tree-canvas" width="1200" height="500"></canvas>
+				<div class="block conclusion" title="Conclusion">The complexity of a full-match is essential to understand the complexity of a solution to Hindman's theorem!</div>
+				<div class="block" title="Question">Do we have that for every computable coloring, there exists a computable full-match?</div>
+				<ul class="c7 h0">
+				    <li>An affirmative answer would prove Hindman's theorem equivalent to \(\mathrm{ACA}_0\)</li>
+				    <li>A negative answer to the question was published, but there was an error in the proof.</li>
+				</ul>
+				<div class="c8 h0 theorem" title="Monin, Patey, A.d'A.">Every computable coloring in two colors admits a computable left-match.</div>
+				<div class="c9 h0">
+				    Consider the following property:
+				    $$\exists F\subseteq C_i, \forall x\in\mathrm{FS}(S),\ \exists a\in F,\ c(a+x) = j\tag{\(\mathrm{MM}_{i,j}\)}$$
+				    <div class="theorem" title="Monin, Patey, A.d'A.">Every coloring in two colors satisfying one of the following properties:
+					<ul>
+					    <li>\(\lnot(\mathrm{MM}_{0,1})\) or \(\lnot(\mathrm{MM}_{1,0})\)</li>
+					    <!-- <li></li> -->
+					    <li>\((\mathrm{MM}_{0,0})\) and \((\mathrm{MM}_{1,1})\)</li>
+					<li>\(\lnot(\mathrm{MM}_{0,0})\) and \(\lnot(\mathrm{MM}_{1,1})\)</li>
+					</ul>
+					admits a computable full-match.</div>
+				</div>
+			    </div>
+			</div>
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!! ! -->
+			<!-- Slides sur Hindman (examples) ! -->
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!! ! -->
+
+			<!-- <div class="slide" id="hindman-examples" pos-x="10" pos-y="2" scale="1" rotate="0" delay="1">
+			     <div class="titre">Quelques examples</div>
+			     L'ensemble des entiers pairs :
+			     <div class="coloring" style="visibility:visible">
+			     <div class="number-container original" style="margin-top: 30px; text-align:center;">
+			     <span class="number n0">0</span>
+			     <span class="number n1">1</span>
+			     <span class="number n2">2</span>
+			     <span class="number n3">3</span>
+			     <span class="number n4">4</span>
+			     <span class="number n5">5</span>
+			     <span class="number n6">6</span>
+			     <span class="number n7">7</span>
+			     <span class="number n8">8</span>
+			     <span class="number n9">9</span>
+			     <span class="number n10">10</span>
+			     <span class="number n11">11</span>
+			     <span class="number n12">12</span>
+			     <span class="number n13">13</span>
+			     <span class="number n14">14</span>
+			     <span class="number n15">15</span>
+			     <span class="number n16">16</span>
+			     <span class="number n17">17</span>
+			     <span class="number n18">18</span>
+			     <span class="number n19">19</span>
+			     ...
+			     <span class="number n20">45</span>
+			     <span class="number n21">46</span>
+			     ...
+			     </div>
+			     </div>
+			     </div> -->
+			
+			<!-- <div class="slide" id="hindman-itself-2" pos-x="10" pos-y="1" scale="1" rotate="180" delay="0">
+			     <div class="titre">Le Théorème de Hindman</div>
+			     <div class="number-container">
+			     <span class="number zero">0</span>
+			     <span class="number un">1</span>
+			     <span class="number deux">2</span>
+			     <span class="number trois">3</span>
+			     <span class="number quatre">4</span>
+			     <span class="number cinq">5</span>
+			     <span class="number six">6</span>
+			     <span class="number sept">7</span>
+			     ...
+			     <span class="number quarante-cinq">45</span>
+			     <span class="number quarante-six">46</span>
+			     ...
+			     </div>
+			     </div> -->
+
+
+			<div class="slide permanent" id="temps-infini" pos-x="2" pos-y="2" scale="1" rotate="0" delay="1">
+			    <!-- <div class="titre">Le calcul en temps infini</div> -->
+			    <div class="slide-body-container">
+				<h1 class="h0 cm1" style="text-align: center">Infinite time computation</h1>
+				<p class="h0 cm1">Usually, a computation halts in a finite number of <span class="emphasize">steps</span>. An algorithm consists of the set of rules to go from one step to the <span class="emphasize">next one</span>.</p>
+				<p class="h0 cm1">We now want that the number of steps can be <span class="emphasize">infinite</span>. We shall however keep the notion of <span class="emphasize">next one</span>.</p>
+				<div style="height:750px;position:relative" class="canvases-container">
+				    <canvas class="omegaCanvas" width="5000" height="300" style="position:absolute;top: 300px;left:auto; right:auto; transition: left 1s, transform 1s, right 1s, bottom 1s, top 1s"></canvas>
+				    <div style="position:absolute; transform:scale(2.5);transition: left 1s, top 1s, right 1s" class="omegaSymbol omega">\(\omega\)</div>
+
+				    <canvas class="omegaPlusOneCanvas" width="5000" height="300" style="position:absolute;top:300px;left:auto; right:auto; transition: left 1s, transform 1s, right 1s, bottom 1s, top 1s"></canvas>
+				    <div style="position:absolute; transform:scale(2.5);transition: left 1s, top 1s, right 1s" class="omegaSymbol omegaPlusOne">\(\omega+1\)</div>
+
+				    <canvas class="omegaPlusOmegaCanvas" width="5000" height="300" style="position:absolute;top:300px;left:auto; right:auto; transition: left 1s, transform 1s, right 1s, bottom 1s, top 1s"></canvas>
+				    <div style="position:absolute; transform:scale(2.5);transition: left 1s, top 1s, right 1s, right 1s" class="omegaSymbol omegaPlusOmega">\(\omega+\omega\)</div>
+
+				    <canvas class="omegaSquareCanvas" width="5000" height="300" style="position:absolute;top:350px;left:auto; right:auto; transition: left 1s, transform 1s, right 1s, bottom 1s, top 1s"></canvas>
+				    <div style="position:absolute; transform:scale(2.5);transition: left 1s, top 1s, right 1s" class="omegaSymbol omegaSquare">\(\omega\times\omega\)</div>
+				    <div style="position:absolute; transform:scale(2.5);transition: left 1s, top 1s, right 1s; top:1200px; right:0" class="omegaExpOmega h0">\(\omega^{\omega}\)</div>
+				</div>
+				<div>
+				    <img class="h0 omega-exp-omega" style="  display:block;margin-left: auto; margin-right: auto;" src="Omega-exp-omega.svg"/>
+				</div>
+			    </div>
+			</div>
+			<div class="slide" id="temps-infini-2" pos-x="2" pos-y="3.75" scale="1" rotate="0" delay="1">
+			    <!-- <div class="titre">Trois types de calculs en temps infini</div> -->
+			    <div class="slide-body-container">
+				<h1 style="text-align:center">Three types of infinite time computations</h1>
+
+			    </div>
+			</div>
+
+			<div class="slide permanent no-flex" id="ittms-def" pos-x="2.3333" pos-y="3.6" scale="0.33" rotate="0" delay="1" style="">
+			    <div class="slide-body-container">
+				<h1 style="text-align:center">Infinite Time Turing Machine</h1>
+				<div class="h0 v1">
+				    <canvas width="1200" height="800" class="canvas-ittm"></canvas>
+				    <canvas style="display:block" class="ordinalCanvas" width="5000" height="150" style="position:absolute;top: 300px;left:auto; right:auto; transition: left 1s, transform 1s, right 1s, bottom 1s, top 1s"></canvas>
+				    <div title="Hamkins, Kidder" class="definition ittm-defi">An <span class="emphasize">Infinite Time Turing Machine</span> (ITTM) is a Turing Machine <span class="emphasize">with three tapes (input, work and output)</span> with a special state (called limit state). An infinite time computation is a sequence of configurations, indexed by an ordinal, such that:
+					<ul>
+					    <li> At <span class="emphasize">successor steps</span>, the rules are <span class="emphasize">the same</span> as for a regular Turing machine,</li>
+					    <li> At <span class="emphasize">limit steps</span> : <ul><li>The state is the <span class="emphasize">limit state</span></li><li>The head of the tapes is at the <span class="emphasize">leftmost position</span></li><li>Each cell of the memory tape is the <span class="emphasize">\(\limsup\)</span> of its previous values: $$T_\lambda(n)=\limsup_{\alpha<\lambda}T_\alpha(n)$$</li></ul></li>
+					</ul>
+				    </div>
+				    <div class="definition three-levels">
+					<ul>
+					    <li>
+						Three levels of computation for a real \(x\) :
+						<ul>
+						    <li><span class="lambda">Writable</span>: At some step, the machine has \(x\) written on its output tape and <span class="lambda">halts</span>.</li>
+						    <li><span class="zeta">Eventually writable</span>: At some step, the machine has \(x\) written on its output tape and <span class="zeta">never modifies it afterward</span>.</li>
+						    <li><span class="Sigma">Accidentally writable</span>: At some step, the machine has \(x\) written on its output tape.</li>
+						</ul>
+					    </li>
+					</ul>
+				    </div>
+				    <div title="Welch" class="h0 theorem lambda-zeta-sigma">Let <span class="lambda">\(\lambda\)</span>, <span class="zeta">\(\zeta\)</span> and <span class="Sigma">\(\Sigma\)</span> the lexicographically least triplet of ordinals such that:
+					$$ L_{\color{red}\lambda}\prec_1 L_{\color{blue}\zeta} \prec_2 L_{\color{green}\Sigma}$$
+					Then,
+					<ul>
+					    <li><span class="lambda">\(\lambda\)</span> is the supremum of the <span class="lambda">halting times</span> and of the <span class="lambda">writable ordinals</span> by an ITTM</li>
+					    <li><span class="zeta">\(\zeta\)</span> is the supremum of the <span class="zeta">stabilisation times</span> and of the <span class="zeta">eventually writable ordinals</span> by an ITTM</li>
+					    <li><span class="Sigma">\(\Sigma\)</span> is the supremum of the <span class="Sigma">loopless times</span>, and of the <span class="Sigma">accidentally writable ordinals</span> by an ITTM</li>
+					</ul>
+				    </div>
+				    <div title="Welch" class="theorem lambda-zeta-sigma-2" style="display:none">Let <span class="lambda">\(\lambda^x\)</span>, <span class="zeta">\(\zeta^x\)</span> and <span class="Sigma">\(\Sigma^x\)</span> be the lexicographically least triplet of ordinals such that:
+					$$ L_{\color{red}\lambda^x}[x]\prec_1 L_{\color{blue}\zeta^x}[x] \prec_2 L_{\color{green}\Sigma^x}[x]$$
+					Then,
+					<ul>
+					    <li><span class="lambda">\(\lambda^x\)</span> is the supremum of the <span class="lambda">halting times</span> and of the <span class="lambda">writable ordinals</span> by an ITTM relatively to \(x\).</li>
+					    <li><span class="zeta">\(\zeta^x\)</span> is the supremum of the <span class="zeta">stabilisation times</span> and of the <span class="zeta">eventually writable ordinals</span> by an ITTM relatively to \(x\).</li>
+					    <li><span class="Sigma">\(\Sigma^x\)</span> is the supremum of the <span class="Sigma">loopless times</span>, and of the <span class="Sigma">accidentally writable ordinals</span> by an ITTM relatively to \(x\).</li>
+					</ul>
+				    </div>
+				</div>
+				<!-- <ul><li>Temps dépendant de l'entrée</li><li>Historique incomplet</li><li>Bonne relativisation</li></ul> -->
+				<div class="definition h0 cm1">
+				    <ul>
+					<li>
+					    For the subsets if reals\(A\subseteq\mathbb R\):
+					    <ul>
+						<li>ITTM-decidable : \(\forall x\in\mathbb R\), we have \(x\in A\Longleftrightarrow M(x)\downarrow=1\) for some total ITTM \(M\).</li>
+						<li>ITTM-semi-decidable : \(\forall x\in\mathbb R\), we have \(x\in A\Longleftrightarrow M(x)\downarrow\).</li>
+					    </ul>
+					</li>
+				    </ul>
+				</div>
+				<div class="theorem h0 relation-alpha">
+				    <ul>
+					<li><span class="lambda">\(\lambda\)</span>-computability and writability coincide</li>
+					<li><span class="zeta">\(\zeta\)</span>-computability and eventual writability coincide</li>
+					<li><span class="Sigma">\(\Sigma\)</span>-computability and accidental writability coincide</li>
+				    </ul>
+				</div>
+			    </div>
+			</div>
+			
+			<div class="slide permanent no-flex" id="higher-def" pos-x="2" pos-y="3.6" scale="0.33" rotate="0" delay="1" style="">
+			    <div class="slide-body-container">
+				<h1 style="text-align:center">Higher Recursion</h1>
+				<div class="definition h0 c1">
+				    <ul>
+					<li>A set \(A\subseteq\mathbb N\) is \(\Sigma^1_1\) if it is definable by a formula of he form $$\exists X\in \mathcal P(\mathbb N),\ \psi(X,x)$$ where \(\psi(X,x)\) is arithmetic.</li>
+					<li>A set \(A\subseteq\mathbb N\) is \(\Pi^1_1\) if its complementary is \(\Sigma^1_1\).</li>
+					<li>A set \(A\subseteq\mathbb N\) is \(\Delta^1_1\) if it is both \(\Sigma^1_1\) and \(\Pi^1_1\).</li>
+				    </ul>
+				</div>
+				<div title="Sacks" class="definition h0 c2">
+				    A set \(A\subseteq\mathbb N\) is
+				    <ul>
+					<li><span class="">higher computable</span> <span style="display:none" class="relativement emphasize">relatively to \(x\)</span> if it is <span class="non-relativement">\(\Delta^1_1\)</span><span style="display:none" class="relativement emphasize">\(\Delta^1_1(x)\)</span>.</li>
+					<li><span class="">higher computably enumerable</span> <span style="display:none" class="relativement emphasize">relatively to \(x\)</span> if it is <span class="non-relativement">\(\Pi^1_1\)</span><span style="display:none" class="relativement emphasize">\(\Pi^1_1(x)\)</span>.</li>
+					<li><span class="">higher co-computably enumerable</span> <span style="display:none" class="relativement emphasize">relatively to \(x\)</span> if it is <span class="non-relativement">\(\Sigma^1_1\)</span><span style="display:none" class="relativement emphasize">\(\Sigma^1_1(x)\)</span>.</li>
+				    </ul>
+				</div>
+				<div class="h0 c25">
+				    <h2>Links with infinite time computations</h2>
+				    A computable ordinal : 
+				</div>
+				<canvas class="omegaCK" width="5000" height="100" ></canvas>
+				<!-- L'ordinal <span class="emphasize">\(\omega_1^{\mathrm{CK}}\)</span> est le plus petit ordinal qui ne peut pas être écrit par ordinateur. -->
+				<div class="definition h0 c4" title="Church Kleene's Omega One">
+				    The ordinal <span class="non-relativement-2">\(\omega_1^{\mathrm{CK}}\)</span><span style="display:none" class="relativement-2 emphasize">\(\omega_1^{x}\)</span> is the smallest ordinal that is not computable<span style="display:none" class="relativement-2 emphasize"> relatively to \(x\)</span>.
+				</div>
+				
+				<div title="Sacks" class="theorem h0 c3">
+				    A set \(A\subseteq\mathbb N\) is 
+				    <ul>
+					<li><span class="">higher computable</span> <span style="display:none" class="relativement-2 emphasize">relatively to \(x\) </span>if and only if it is <span class="non-relativement-2">\(\omega_1^{\mathrm{CK}}\)-computable</span><span class="relativement-2 emphasize" style="display:none">\(\omega_1^{x}\)-calculable</span>.</li>
+					<li><span class="">higher c.e.</span> <span style="display:none" class="relativement-2 emphasize">relatively to \(x\) </span>if and only if it is <span class="non-relativement-2">\(\omega_1^{\mathrm{CK}}\)-c.e.</span><span class="relativement-2 emphasize" style="display:none">\(\omega_1^{x}\)-c.e.</span>.</li>
+					<li><span class="">higher co-c.e.</span> <span style="display:none" class="relativement-2 emphasize">relatively to \(x\) </span>if and only if it is <span class="non-relativement-2">\(\omega_1^{\mathrm{CK}}\)-co-c.e.</span><span class="relativement-2 emphasize" style="display:none">\(\omega_1^{x}\)-co-c.e.</span>.</li>
+				    </ul>
+				</div>
+				<!-- <ul><li>Temps dépendant de l'entrée</li><li>Historique complet</li><li>Bonne relativisation</li></ul> -->
+			    </div>
+			</div>
+			
+			<div class="slide permanent no-flex" id="alpha-rec-def" pos-x="1.6666" pos-y="3.6" scale="0.33" rotate="0" delay="1" style="">
+			    <div class="slide-body-container">
+				<h1 style="text-align:center">\(\alpha\)-recursion</h1>
+				<canvas class="omegaForAlpha h0 c0" width="5000" height="100" ></canvas>
+				<!-- Passer du temps fini au temps infini. -->
+				<ul class="h0 c0">
+				    <li> A starting state \(C_0\) defining a machine configuration. </li>
+				    <li> <span class="regle">Rules</span> <span class="formule" style="display:none">A \(\Delta_1\) formula</span> to go <span class="i-a-i-plus-un"> from \(C_i\) to \(C_{i+1}\)</span> <span style="display:none" class="lambda-a-beta">from \((C_\beta)_{\beta<\lambda}\) to \(C_\lambda\)</span>. <!-- , deux configurations de machines (position dans l'algorithme, mêmoire) --></li>
+				</ul>
+				<span class="h0 c0">From finite time to infinite time:</span>
+				<ul class="h0 c0">
+				    <li class="h0 c1prime"><span class="c1">First stage: index machine configurations by an ordinal \(\alpha\).</span></li>
+				    <li class="h0 c2prime"><span class="c2 ">Second stage: replace rules by definability.</span></li>
+				</ul>
+				<!-- <p>
+				     D'un côté : un calcul est une suite de configuration d'algorithme (état et mêmoire), pour chaque étapes, et passer d'une étape à la suivante est calculable.
+				     </p>
+				     <p>
+				     Mais calculable == \(\Delta_1\).
+				     </p>
+				     <p>
+				     Donc pour les étapes limites, on va utiliser une formule plutôt qu'une machine.
+				     </p> -->
+				<div class="definition c3 h0" title="Gödel's constructible">
+				    Let us define <!-- les constructibles de Gödel --> \((L_\alpha)_{\alpha\in\mathrm{Ord}}\) the following way:
+				    <ul><li>\(L_0 = \emptyset\)</li><li>\(L_{\alpha+1} = \{ A\subseteq L_\alpha : \) \(A\) is definable in \(L_\alpha\}\)</li><li>\(L_\lambda = \bigcup_{\alpha<\lambda}L_\alpha\)</li></ul>
+				</div>
+				<div class="definition c4 h0" title="α-recursion, Sacks">
+				    We say that \(A\subseteq\mathbb N\) is
+				    <ul>
+					<li>\(\alpha\)-computable if \(A\) is \(\Delta_1\)-definable in \(L_\alpha\).</li>
+					<li>\(\alpha\)-r.e. if \(A\) is \(\Sigma_1\)-definable in \(L_\alpha\).</li>
+					<li>\(\alpha\)-co-r.e. if \(A\) is \(\Pi_1\)-definable in \(L_\alpha\).</li>
+				    </ul>
+				(<span class="c5">\(\omega\)-computability corresponds to classical computability</span>)
+				</div>
+				<span class="h0 c6 emphasize">Not all ordinals are good to bound a computation time:</span>
+				<canvas class="omegaForPlusUn" width="5000" height="100" ></canvas>
+				<div title="Admissibility" class="definition h0 c7">We say that \(\alpha\) is admissible if for all \(f:\beta<\alpha\to\alpha\) \(\alpha\)-computable, we have \(\lim_{\gamma<\beta} f(\gamma)<\alpha\)</div>
+				<span></span>
+				<!-- <ul><li>Temps Fixé</li><li>Historique complet</li><li>Mauvaise relativisation</li></ul> -->
+			    </div>
+			</div>
+			<!-- <div class="slide" id="higher-rec-def" pos-x="20" pos-y="2" scale="1" rotate="0" delay="0">
+			     <div class="slide-body-container">
+			     Angoisse de la page blanche
+			     </div>
+			     </div>
+			     <div class="slide" id="alpha-recursion-def" pos-x="20" pos-y="2" scale="1" rotate="0" delay="0">
+			     <div class="slide-body-container">
+			     Angoisse de la page blanche
+			     </div>
+			     </div> -->
+			<!-- </div>
+			     </div>
+			     </div>
+			     </div> -->
+			
+			<div class="slide permanent no-flex" id="randomness-intro" pos-x="3.5" pos-y="0.5" scale="1" rotate="0" delay="1" style="">
+			    <div class="titre">Algorithmic randomness</div>
+			    <div class="slide-body-container">
+				<div class="block" title="Principle">Study the properties of random reals.</div>
+				Consider the two following sequences, and their probabilities:
+
+				<div class="js-random"><div>\(\mathbb P(\)</div>
+				    <div style="width:85%" class="coin-container">
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+				    </div>
+				    <div class="proba-0 equal-container">
+					<div class="proba-0">\()=1\)</div>
+					<div class="proba-1">\()=0.5\)</div>
+					<div class="proba-2">\()=0.25\)</div>
+					<div class="proba-3">\()=0.125\)</div>
+					<div class="proba-4">\() ={2^{-4}}\)</div>
+					<div class="proba-5">\() ={2^{-5}}\)</div>
+					<div class="proba-6">\() ={2^{-6}}\)</div>
+					<div class="proba-7">\() ={2^{-7}}\)</div>
+					<div class="proba-8">\() ={2^{-8}}\)</div>
+					<div class="proba-9">\() ={2^{-9}}\)</div>
+					<div class="proba-10">\() ={2^{-10}}\)</div>
+					<div class="proba-11">\() ={2^{-11}}\)</div>
+					<div class="proba-12">\() ={2^{-12}}\)</div>
+					<div class="proba-13">\() ={2^{-13}}\)</div>
+					<div class="proba-14">\() ={2^{-14}}\)</div>
+				    </div>
+				</div>
+				<div class="all-zeros"><div>\(\mathbb P(\)</div>
+				    <div style="width:85%" class="coin-container">
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+					<div class="coin"><div class="side-a"></div><div class="side-b"></div></div>
+				    </div>
+				    <div class="equal-container proba-0">
+					<div class="proba-0">\()=1\)</div>
+					<div class="proba-1">\()=0.5\)</div>
+					<div class="proba-2">\()=0.25\)</div>
+					<div class="proba-3">\()=0.125\)</div>
+					<div class="proba-4">\() ={2^{-4}}\)</div>
+					<div class="proba-5">\() ={2^{-5}}\)</div>
+					<div class="proba-6">\() ={2^{-6}}\)</div>
+					<div class="proba-7">\() ={2^{-7}}\)</div>
+					<div class="proba-8">\() ={2^{-8}}\)</div>
+					<div class="proba-9">\() ={2^{-9}}\)</div>
+					<div class="proba-10">\() ={2^{-10}}\)</div>
+					<div class="proba-11">\() ={2^{-12}}\)</div>
+					<div class="proba-12">\() ={2^{-12}}\)</div>
+					<div class="proba-13">\() ={2^{-13}}\)</div>
+					<div class="proba-14">\() ={2^{-14}}\)</div>
+				    </div>
+				</div>
+				<!-- <pre><code>for(let i=0; i<100; i++) {
+				     console.log(Math.rand(2));
+				     }</code></pre> -->
+				<div class="h0 c1">
+				    We remark:
+				    <ul>
+					<li>Both have the same probabilities</li>
+					<li>The probability tends toward 0</li>
+					<li><span class="emphasize">However, the former seems more random than the latter...</span></li>
+				    </ul>
+				</div>
+				<div class="h0 c2">
+				    Measure Theory doesn't answer this paradox. <span class="emphasize">Algorithmic randomness does!</span>
+				    <div class="block resolution" title="Resolution"><span class="article">An</span> <span class="objet">object</span> is random <span class="condition">if</span> it doesn't have any <span class="discriminante">discriminatory</span> <span class="et">and</span> <span class="simple">simple</span> property.</div>
+				</div>
+				<div class="definition h0 c3" title="weak-n-randomness">A real \(x\in {2^{\mathbb N}}\) is weak-\(n\)-random if it avoids all <span class="simple">\(\Pi^0_n\)</span> and of <span class="discriminante">measure 0</span> properties.</div>
+				<div class="definition h0 c4" title="Martin-Lof randomness">A ML-test is a <span class="simple">\(\Pi^0_2\)</span> set \(A\), such that \(A\) is of the form $$\bigcap_{n\in\mathbb N} U_n$$ where <span class="discriminante">\(\forall n,\ \mu(U_n)\leq {2^{-n}}\)</span>. A real \(x\in{2^{\mathbb N}}\) is ML-random if it avoids all ML-tests.</div>
+				<ul class="h0 c5">
+				    <li>Each <span class="simple">complexity layer</span> induces a randomness notion. We do not define what random real is, but a <span class="emphasize">hierarchy</span> of the reals to what extent they are random.</li>
+				    <li>Each level has its weaknesses :
+					<ul><li>Some reals <!-- (comme \(\Omega\), la probabilité d'arrêt d'une machine de Turing) --> are strangely ML-random</li><li>For all \(n\), there exists an arithmetic weak-\(n\)-random real. <!-- Commet un réel aléatoire pourrait être définit par une simple formule arithmétique ? --></li><li><span class="emphasize">This suggests the study of strong randomness notions.</span></li></ul></li>
+				</ul>
+				<div style="text-align: center"><img class="h0 banana" style="width:100%" src="banana2.png"/></div>
+			    </div>			    
+			</div>
+
+			<div class="slide permanent no-flex" id="randomness-ittm" pos-x="3.5" pos-y="2.75" scale="1" rotate="0" delay="3" style="">
+			    <div class="slide-body-container">
+				<div class="h0 cm2">
+				    <h1>Higher order randomness</h1>
+				    Higher order randomness is already developed. It adapts classical randomness notions, using the analogy between \(\Pi^1_1\) and computably enumerable:
+				    <div class="definition" title="Hjorth, Nies">
+					A real \(x\) is \(\Pi^1_1\)-ML-random if it belongs to no set \(A\) of the form $$A=\bigcap_n{[W_n]^\prec}$$ where the sets \(W_n\) are <span class="simple">uniformly \(\Pi^1_1\)</span> and <span class="discriminante">\(\mu([W_n])\leq{2^{-n}}\)</span>.
+				    </div>
+				</div>
+				<div class="h0 c1">
+				    It also introduces new notions :
+				    <div class="definition" title="Sacks">
+					A real \(x\) is \(\Delta^1_1\)-random if it avoids all <span class="simple">\(\Delta^1_1\)</span> <span class="discriminante">measure 0</span> properties.
+				    </div>
+				    <div class="definition" title="Sacks">
+					A real \(x\) is \(\Pi^1_1\)-random if it avoids all <span class="simple">\(\Pi^1_1\)</span> <span class="discriminante">measure 0</span> properties.
+				    </div>
+				</div>
+				<div class="h0 c2">
+				    <div class="theorem movable higher-theorem" title="Chong, Yu, Nies">A real is \(\Pi^1_1\)-random if and only if it is \(\Delta^1_1\)-random and \(\omega_1^{\mathrm{CK}}=\omega_1^{\mathrm{CK(x)}}\)</div>
+				    <div class="theorem movable inclusions" title="Chong, Yu, Nies">We have the following strict inclusion:
+					$$\Delta^1_1\text{-randomness}\subsetneq\Pi^1_1\text{-ML-randomness}\subsetneq\Pi^1_1\text{-randomness}$$
+				    </div>
+				</div>
+				<div class="h0 cm2">
+				    <h1>Randomness for \(\alpha\)-recursion and Infinite Time Turing Machine</h1>
+				    The extension of the definitions from higher order randomness is straightforward:
+				</div>
+				<div class="definition h0 c3" title="randomness over \(L_\alpha\), Carl and Schlicht">
+				    A real \(x\) is random over \(L_\alpha\) if it avoids every set \(A\subseteq\mathbb R\), <span class="simple">with Borel code in \(L_\alpha\)</span> and of <span class="discriminante">measure 0</span>.
+				</div>
+				<div class="definition h0 c4" title="ITTM-randomness, Carl and Schlicht">
+				    A real \(x\) is ITTM-random if it avoids every set \(A\subseteq\mathbb R\) <span class="simple">ITTM-semi-decidable</span> and of <span class="discriminante">measure 0</span>.
+				</div>
+				<div class="definition h0 c5" title="α-ML-randomness, Carl and Schlicht">
+				    A real \(x\) is \(\alpha\)-ML-random if it avoids every set \(A\) of the form $$A=\bigcap_n{[W_n]^\prec}$$ where the sets \(W_n\) are <span class="simple">uniformly \(\alpha\)-computably enumerable</span> and <span class="discriminante">\(\mu([W_n])\leq{2^{-n}}\)</span>. It is ITTM-ML-random if it is \(\Sigma\)-ML-random.
+				</div>
+				<div style="visibility:hidden" class="theorem movable higher-theorem-ghost">A real is \(\Pi^1_1\)-random if and only if it is \(\Delta^1_1\)-random and \(\omega_1^{\mathrm{CK}}=\omega_1^{\mathrm{CK(x)}}\)</div>
+				<!-- <div style="visibility:hidden" class="theorem movable higher-theorem-ghost">Un réel est \(\Pi^1_1\)-aléatoire si et seulement si il est \(\Delta^1_1\)-aléatoire et \(\omega_1^{\mathrm{CK}}=\omega_1^{\mathrm{CK(x)}}\)</div> -->
+				<div class="theorem h0 c6" title="Carl, Schlicht">
+				    A real \(x\) is ITTM-random if and only if it is random over \(L_\Sigma\) and \(\Sigma^x=\Sigma\)
+				</div>
+				<div style="visibility:hidden" class="theorem movable inclusions-ghost">We have the following strict inclusion:
+				    $$\Delta^1_1\text{-randomness}\subsetneq\Pi^1_1\text{-ML-randomness}\subsetneq\Pi^1_1\text{-randomness}$$
+				</div>
+				<!-- <div style="visibility:hidden" class="theorem movable inclusions-ghost">On a les inclusions strictes suivantes :
+				     $$\Delta^1_1\text{-randomness}\subsetneq\Pi^1_1\text{-ML-randomness}\subsetneq\Pi^1_1\text{-randomness}$$
+				     </div> -->
+				<div class="block h0 c7" title="Question">
+				    <div class="question-1"> <div class="h0 c9" style="font-size: 2em;color:green; display:inline-block">✓</div> For which \(\alpha\) do we have :
+				    $$\text{randomness over }L_\alpha\subsetneq\alpha\text{-ML-randomness}\text{ ?}$$</div>
+				    <div style="background-color:white;" class="question-2 movable">
+					Do we have
+					$$\text{randomness over }L_\Sigma\subsetneq\text{ITTM-ML-randomness}\subsetneq\text{ITTM-randomness}\text{ ?}$$
+				    </div>
+				</div>
+				<div title="Monin, A.d'A." class="theorem h0 c8">Let \(\alpha\) be such that \(L_\alpha\models\text{"everything is countable"}\). Then, the following statements are equivalent:
+				    <ul>
+					<li>\(\alpha\)-ML-randomness is strictly stronger than randomness over \(L_\alpha\).</li>
+					<li>\(\alpha\) is projectible in \(\omega\).</li>
+					<li>There exists a universal \(\alpha\)-ML-test.</li>
+				    </ul>
+				</div>
+				<div class="block c9 h0" title="Corollary">
+				    $$\text{Randomness over }L_\lambda\subsetneq\lambda\text{-ML-randomness}$$
+				    $$\text{Randomness over }L_\zeta=\zeta\text{-ML-randomness}$$
+				    $$\text{Randomness over }L_\Sigma\subsetneq\Sigma\text{-ML-randomness}$$
+				</div>
+				<div class="h0 c10 block" title="Question">
+				    <div class="question-2-ghost" style="visibility:hidden">
+					Do we have:
+					$$\text{Randomness over }L_\Sigma\subsetneq\text{ITTM-ML-randomness}\subsetneq\text{ITTM-randomness}\text{ ?}$$
+				    </div>
+				</div>
+				<div class="theorem h0 c11">
+				    $$\text{Randomness over }L_\Sigma\subseteq\text{ITTM-randomness}\subsetneq\text{ITTM-ML-randomness}$$
+				</div>
+				<div class="h0 c12 block" title="The remaining question">
+				    $$\text{Randomness over }L_\Sigma\neq\text{ITTM-randomness ?}$$
+				    Does \(x\) random over \(L_\Sigma\) implies $$L_\zeta[x]\not\prec_2L_\Sigma[x]\text{ ?}$$
+				</div>
+				<div class="theorem h0 c13" title="Monin, A.d'A.">
+				    If \(x\) is generic over \(L_\Sigma\) then $$L_\zeta[x]\prec_2L_\Sigma[x].$$
+				    We therefore have:
+				    $$\text{Genericity over }L_\Sigma = \text{ITTM-genericity}$$
+				</div>
+				<!-- <div class="block" title="Question">
+				     Les deux notions (ITTM-aléatoirité et aléatoirité pour \(L_{\Sigma}\)) sont-elles les mêmes ?
+				     </div> -->
+			    </div>			    
+			</div>
+
+			<div class="slide permanent no-flex" id="reverse-math-intro" pos-x="5" pos-y="0.5" scale="1" rotate="0" delay="1" style="">
+			    <div class="titre">Reverse Mathematics</div>
+			    <div class="slide-body-container">
+				<div class="block" title="Principle">The goal of reverse mathematics is to find the necessary axioms to prove theorems from ordinary mathematics.</div>
+				<div class="block" title="Method">Prove the axioms, supposing the theorem.</div>
+				<ul class="h0 v1">
+				    <!-- <li>Ne se pose pas en fondement des mathématiques</li> -->
+				    <li>First discovery: The vast majority of natural theorems are equivalent to one out of five axiomatic systems.
+					<ul style="position:relative">
+					    <div style="position:absolute;width:20px;border:3px solid black;border-bottom-right-radius:10px; border-top-right-radius:10px; border-left: 0px; right:40%; top:0; bottom:0;margin:0"></div>
+					    <div style="display: flex; align-items: center; position:absolute; right:5%;font-size: 1.5em; top:0; bottom:0;margin:0"><div>The Big Five</div></div>
+					    <li>\(\mathrm{RCA}_0\), constructive mathematics,</li>
+					    <li>\(\mathrm{WKL}_0\), compactness,</li>
+					    <li>\(\mathrm{ACA}_0\), arithmetical comprehension,</li>
+					    <li>\(\mathrm{ATR}_0\), arithmetical transfinite induction,</li>
+					    <li>\(\Pi^1_1\text{-}\mathrm{CA}_0\), analytic comprehension.</li>
+					</ul>
+				    </li>
+				    <li class="h0 v2">Second discovery: lots of theorems from Ramsey Theory avoids this structure.</li>
+				</ul>
+				<div class="h0 v3 definition">Two theorems \(T_0\) and \(T_1\) are said <span class="emphasize">equivalents</span> if:
+				    <ul><li>Taking \(T_0\) and \(\mathrm{RCA}_0\) as axioms, we can prove \(T_1\)</li>
+					<li>Taking \(T_1\) and \(\mathrm{RCA}_0\) as axioms, we can prove \(T_0\)</li></ul>
+				</div>
+				<h2>Using computability in reverse mathematics</h2>
+				The natural axioms in mathematics are existence axioms. To the use of an axiom corresponds a computable complexity. <!-- Les axiomes naturels en mathématiques sont des axiomes d'existence. À l'utilisation d'un axiome correspond une complexité calculatoire. -->
+				<div style="display: flex;" class="table-container">
+				    <div style="flex-grow: 1" class="left-column column">
+					<div class="cell header">Axiom</div>
+					<div class="cell">\(\mathrm{RCA}_0\)</div>
+					<div class="cell">\(\mathrm{WKL}_0\)</div>
+					<div class="cell">\(\mathrm{ACA}_0\)</div>
+					<div class="cell">\(\mathrm{ATR}_0\)</div>
+					<div class="cell">\(\Pi^1_1\text{-}\mathrm{CA}_0\)</div>
+				    </div>
+				    <div style="flex-grow: 1" class="column right-column">
+					<div class="cell header">Computable complexity</div>
+					<div class="cell">Computable</div>
+					<div class="cell">PA</div>
+					<div class="cell">Finite number of Turing jump</div>
+					<div class="cell">Iterated jump hierarchy</div>
+					<div class="cell">Higher c.e.</div>
+				    </div>
+				</div>
+				<div class="block h0 v5" title="Proof-program duality">During the reverse mathematical study of a theorem, we can see things in two ways:<!-- Lors de l'étude d'un théorème en mathématiques à rebours, on peut voir les choses de deux manières : -->
+				    <ul>
+					<li>What are the used axioms, are they really necessary?<!-- Quels sont les axiomes utilisés, nécessaires ? --></li>
+					<li>What is the computable complexity of the objects in the proof, can we lower it? <!-- Quels est la compléxité calculatoire des objets de la preuve, peut-on l'abaisser ? --></li>
+				    </ul>
+				</div>
+			    </div>
+			</div>
+			<div class="slide permanent no-flex" id="weihrauch-intro"  pos-x="5" pos-y="2.35" scale="1" rotate="0" delay="1">
+			    <div class="slide-body-container">
+				<h1>Reverse Math : A step toward computability</h1>
+				Proof program duality has its limits:
+				<ul>
+				    <li>Non-uniformity is possible in a proof</li>
+				    <li>Some notions depends on the model</li>
+				    <li>A proof is not sensitive to the resources</li>
+				</ul>
+				<div class="block h0 c1" title="Point of view">
+				    We see theorems of the form \(\forall x\in X,\ \exists y\in Y,\ \phi(x,y)\) as problems, with \(x\) being an instance, and \(y\) a solution.
+				</div>
+				<div class="example h0 c1">
+				    <span style="text-weight:bold">Instance :</span> \(f\) continuous with \(f(0)\lt 0\) and \(f(1)\gt 0\).
+				    <span style="text-weight:bold">Solution :</span> \(x\) such that \(f(x)=0\)
+				</div>
+				<div class="definition h0 c2">A problem \(P\) is Weihrauch reducible to a problem \(Q\), written \(P\leq_{\mathrm W}Q\) if, given a solver for \(Q\), we can build a solver for \(P\) the following way:
+				    <div class="weihrauch-container">
+					<div class="box-sol sol-P" style=""><div>Solveur pour \(P\)</div></div>
+					<div class="i00 movable" style="position:absolute;"><div>\(I_0\)</div></div>
+					<div class="i01 movable" style="position:absolute;"><div>\(I_0\)</div></div>
+					<div class="i1 movable h0" style="position:absolute;"><div>\(I_1\)</div></div>
+					<div class="s1 movable h0" style="position:absolute;"><div>\(S_1\)</div></div>
+					<div class="s0 movable h0" style="position:absolute;"><div>\(S_0\)</div></div>
+					<div class="link link-1" style=""></div>
+					<div class="link link-2" style=""></div>
+					<div class="link link-3" style=""></div>
+					<div class="link link-3" style=""></div>
+					<div class="link link-curved" style=""></div>
+					<div class="box-sol sol-f" style="width: 100px"><div>\(f\) comp.</div></div>
+					<div class="box-sol sol-g" style="width: 100px"><div>\(g\) comp.</div></div>
+					<div class="box-sol sol-Q" style=""><div>Solver for \(Q\)</div></div>
+				    </div>
+				    <span class="e0">If \(I_0\) is an instance for \(P\), then</span>
+				    <ul>
+					<li class="e1">\(I_1 = f(I_0)\) is an instance for \(Q\), such that:</li>
+					<li class="e2">For every solution \(S_1\) for \(I_1\), we have:</li>
+					<li class="e3">\(S_0=g(S_1, I_0)\) is a solution for \(I_0\)</li>
+				    </ul>
+				</div>
+<div class="h0 cm5">				<h1>Comparing the axioms of choice</h1>
+				<!-- <div>
+				     <div>
+				     <div>\(A_0\subseteq\{0;1\}\)</div>
+				     <div>\(A_1\subseteq\{0;1\}\)</div>
+				     <div>\(A_2\subseteq\{0;1\}\)</div>
+				     <div>\(A_3\subseteq\{0;1\}\)</div>
+				     <div>\(A_4\subseteq\{0;1\}\)</div>
+				     </div>
+				     <div>
+				     <div>Instance: \((A_n)_{n\in\omega}\), with \(A_n\neq\emptyset\) \(\Sigma^1_1\)</div>
+				     <div>Solution: \((a_n)_{n\in\omega}\), with \(a_n\in A_n\)</div>
+				     </div>
+				     </div> -->
+				<!-- <div>
+				     <div>
+				     <div>\(A_0\subseteq\{0;1\}\)</div>
+				     <div>\(A_1\subseteq\{0;1\}\)</div>
+				     <div>\(A_2\subseteq\{0;1\}\)</div>
+				     <div>\(A_3\subseteq\{0;1\}\)</div>
+				     <div>\(A_4\subseteq\{0;1\}\)</div>
+				     </div>
+				     <div>
+				     <div>Instance: \(T\) a \(\Sigma^1_1\) tree, with \([T]\neq\emptyset\)</div>
+				     <div>Solution: \(p\in[T]\)</div>
+				     </div>
+				     </div> -->
+				<!-- <div class="theorem">
+				     $$\Sigma^1_1\text{-}\mathrm{AC}_{2}\not\leq_{\mathrm W}\Sigma^1_1\text{-}\mathrm{DC}_{2}$$
+				     </div> -->
+				<div class="theorem" title="Kihara, A. d'A.">
+				    $$\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb N}\not\leq_{\mathrm W}\Sigma^1_1\text{-}\mathrm{DC}_{\mathbb N}$$
+				    $$\mathrm{ATR}\not\leq_{\mathrm W}\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb N}$$
+				</div>
+				<!-- <div class="custom-canvas">
+				     <div class="point"></div>
+				     <div class="line"></div>
+				     <div class="point"></div>
+				     <div class="line"></div>
+				     <div class="point"></div>
+				     <div class="line"></div>
+				     <div class="point"></div>
+				     <div class="line"></div>
+				     </div> -->
+				<div class="theorem" title="Kihara, A. d'A.">
+				    <div style="text-align: center">
+					<img style="width:70%; padding:50px" src="hierarchyChoice4.svg"/>
+				    </div>
+				</div>
+</div>				<!-- Appliquons cette réduction pour comparer deux versions de l'axiome du choix.
+				     <h2>Choix dépendant</h2> -->
+			    </div>
+			</div>
+			<!-- <div class="slide permanent no-flex" id="weihrauch-intro" pos-x="5" pos-y="3" scale="1" rotate="0" delay="1" style="">
+			     <div class="slide-body-container">
+			     </div>			    
+			     </div> -->
+			<!-- <div class="slide permanent no-flex" id="choice-principle" pos-x="8" pos-y="6" scale="1" rotate="0" delay="1" style="">
+			     <div class="slide-body-container">
+			     <p>Ici je décris les versions suivantes de l'axiome du choix : indépendente, dans 2 et dans ω et dépendent, dans 2 et dans ω.</p>
+
+			     <p>Parler de la preuve d'équivalence pour les sous-ensemble de 2.</p>
+
+			     <div class="theorem" title="Kihara, A.d'A.">
+			     On a \(\Sigma^1_1\operatorname{-}\mathrm{AC}_{\mathbb N}\) \(\not\leq_{\mathsf W}\Sigma^1_1\operatorname{-}\mathrm{DC}_{\mathbb N}\).
+			     </div>
+			     
+			     <p>Preuve ? juste parler de ATR et de \(\mathrm{ATR}\not\leq_{\mathrm W}\Sigma^1_1\operatorname{-}\mathrm{AC}_{\mathbb N}\) but \(\mathrm{ATR}\leq_{\mathsf W}\Sigma^1_1\operatorname{-}\mathrm{DC}_{\mathbb N}\).</p>
+			     <img src="hierarchyChoice3.svg"/>
+			     </div>			    
+			     </div> -->
+			<div class="slide" id="fin" pos-x="3.5" pos-y="3.5" scale="8" rotate="0" delay="4">
+			</div>
+			<div style="visibility: hidden" id="thanks">Thank you for your attention!</div>
+			<div style="" id="infinite">\(\infty\)</div>
+			<div style="" id="randomnessChapter"><img src="dice2.svg"/></div>
+			<div style="" id="RMChapter">Mathematics</div>
+			<!-- <div style="" id="HT">Hindman</div> -->
+	</div>
+	<script src="highlight/highlight.pack.js"></script>
+	<script src="slip.js"></script>
+	<script src="turing-machine.js"></script>
+	<script src="canvas.js"></script>
+	<script src="slides.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

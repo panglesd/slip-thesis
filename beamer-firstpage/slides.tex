@@ -1,0 +1,176 @@
+\documentclass[ignorenonframetext]{beamer}
+
+\usepackage[utf8x,utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[frenchb]{babel}
+\usepackage{svg}
+
+\uselanguage{French}
+\languagepath{French}
+%\usepackage[latin1]{inputenc}
+
+\usepackage{beamerseminar}
+%\usepackage[accumulated]{beamerseminar}
+                                % remove ``accumulated'' option
+                                % for original behaviour
+%\usepackage{beamerthemeclassic}
+\usepackage{beamerthemeshadow}
+\title{Infinite Computations in Algorithmic Randomness and Reverse Mathematics}
+\institute{\hspace{1cm}\includegraphics[scale=0.25]{lacl_logo.png}\hspace{1.8cm}\includegraphics[scale=0.35]{UPEC-logo.eps}}
+\date{November 22nd, 2019}
+\author[Paul-Elliot Anglès d'Auriac]{Paul-Elliot Anglès d'Auriac\\ \vspace{0.75cm}Under the supervision of \\\vspace{0.2cm}Benoît Monin\\ Pierre Valarcher}
+
+%\newcommand{\sref}[1]{SLIDE \ref{#1}}
+
+% CHANGED: different definition of \heading
+%\newcommand{\heading}[1]{\begin{center}\large\bf #1\end{center}}
+\let\heading=\frametitle
+
+% CHANGED: Commented:
+%\newpagestyle{MH}%
+%  {University of Guaduas, March 13, 1998\hfil\thepage}{}
+%\pagestyle{MH}
+
+\usepackage{proof}
+
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{cancel}
+
+\usepackage{mathrsfs}
+\usepackage{textpos}
+\usepackage{mathtools}
+%\usepackage{extpfeil}
+\usepackage{color}
+%\usepackage{ulsy}
+
+% \usepackage{fullpage} 
+
+\usepackage{bm}
+\newcommand\bfSigma{\boldsymbol{\Sigma}}
+\newcommand\bfPi{\boldsymbol{\Pi}}
+\newcommand\bfDelta{\boldsymbol{\Delta}}
+
+
+\newcommand\Lc{\mathscr{L}}
+\newcommand\Mc{\mathcal{M}}
+\newcommand\Nc{\mathcal{N}}
+\newcommand\Pc{\mathcal{P}}
+\newcommand\Ac{\mathcal{A}}
+\newcommand\Bc{\mathcal{B}}
+\newcommand\Cc{\mathcal{C}}
+\newcommand\Uc{\mathcal{U}}
+\newcommand\Fc{\mathcal{F}}
+\newcommand\Ls{\mathscr{L}}
+\newcommand\Ms{\mathscr{M}}
+\newcommand\Ns{\mathscr{N}}
+\newcommand\Ps{\mathscr{P}}
+\newcommand\As{\mathscr{A}}
+\newcommand\Bs{\mathscr{B}}
+\newcommand\Cs{\mathscr{C}}
+\newcommand\Ds{\mathscr{D}}
+\newcommand\Us{\mathscr{U}}
+\newcommand\Fs{\mathscr{F}}
+\newcommand\Xs{\mathscr{X}}
+\newcommand\Os{\mathscr{O}}
+\newcommand\Oc{\mathcal{O}}
+\newcommand\Ys{\mathscr{Y}}
+\newcommand\Zs{\mathscr{Z}}
+\newcommand\pe{\preccurlyeq}
+\newcommand\ep{\succcurlyeq}
+\newcommand\tp{\mathrm{tp}}
+\newcommand\di{\mathrm{div}}
+\newcommand\cof{\mathrm{cof}}
+\newcommand\Aut{\mathrm{Aut}}
+\newcommand\card{\mathrm{card}}
+\newcommand\Card{\mathrm{Card}}
+\newcommand\Club{\mathrm{Club}}
+\newcommand\type{\mathrm{type}}
+\newcommand\Ord{\mathrm{Ord}}
+\newcommand\V{\mathrm{V}}
+\newcommand\trcl{\mathrm{trcl}}
+\newcommand\Rg{\mathrm{Rg}}
+
+\newcommand*{\longhookrightarrow}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
+
+\newtheorem{proposition}[theorem]{Proposition}%[section]
+\newtheorem{Question}[theorem]{Question}%[section]
+\newtheorem{Paradigme}[theorem]{Paradigme}%[section]
+
+\begin{document}
+
+% CHANGED: Added \frame
+\begin{frame}
+  \maketitle          % This won't show up when \onlynotestoo is in effect.
+\end{frame}
+% \frame{\heading{Table des matières}
+% \tableofcontents                  % This won't show up when \onlynotestoo is in effect.
+%}
+
+\begin{frame}
+  \frametitle{Quelque clés pour suivre}
+  \begin{definition}
+    \begin{itemize}
+    \item Un calcul, c'est ...
+    \item Un ensemble est calculable si ...
+    \item Une fonction est calculable, si ...
+    \end{itemize}
+  \end{definition}
+\end{frame}
+
+\begin{frame}
+  \frametitle{De forts liens entre définissabilité et calculabilité}
+  \begin{itemize}
+  \item Un algorithme définit un objet,
+  \item Réciproquement, une définition induit un algorithme
+  \end{itemize}
+  Ces liens permettent d'utiliser le paradigme ``calcul'' dans d'autres domaine de la logique :
+  \begin{itemize}
+  \item La théorie de la preuve, qui étudie du point de vue mathématiques la prouvabilité,
+  \item La théorie descriptive des ensembles, qui étudie les propriétés des ensembles de rééls définissables
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  Dans cette thèse, nous nous intéressons à un type particulier de calcul : la calcul à temps infini.
+\end{frame}
+\begin{frame}
+  Randomness:
+  The study of the objects taken at random, and their properties.
+
+  Taken at random? Informally:
+  \begin{enumerate}
+  \item each digit taken at random, one after another, or
+  \item taken uniformly inbetween 0 and 1
+  \end{enumerate}
+  Some properties may happen, but have probability 0 to happen :
+  \begin{enumerate}
+  \item having only 0s
+  \item having more 1s than 0s
+  \end{enumerate}
+\end{frame}
+\begin{frame}
+  We can use Infinite Time Turing Machines and the constructibles to define notions of randomness:
+  \begin{definition}
+    \begin{enumerate}
+    \item ITTM-randomness,
+    \item randomness over $L_\alpha$,
+    \item ITTM-ML-randomness...
+    \end{enumerate}
+  \end{definition}
+  \begin{theorem}
+    Le theoreme de Hindman
+  \end{theorem}
+\end{frame}
+\begin{frame}
+  Résultats et questions
+\end{frame}
+\begin{fame}
+Hindman's Theorem  
+\end{fame}
+\end{document}
+
