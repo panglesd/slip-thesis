@@ -28,9 +28,11 @@ parseAndFormat();
 let Engine = function() {
     // Constants
     document.body.style.cursor = "auto";
+    let timeOutIds = [];
     document.body.addEventListener("mousemove", (ev) => {
+	timeOutIds.forEach((id) => { clearTimeout(id); });
 	document.body.style.cursor = "auto";
-	setTimeout(() => { document.body.style.cursor = "none";}, 5000);
+	timeOutIds.push(setTimeout(() => { document.body.style.cursor = "none";}, 5000));
     });
     let openWindow = document.querySelector("#open-window");
     let universe = document.querySelector("#universe");
