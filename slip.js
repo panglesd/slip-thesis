@@ -29,6 +29,7 @@ let Engine = function() {
     // Constants
     document.body.style.cursor = "auto";
     document.body.addEventListener("mousemove", (ev) => {
+	document.body.style.cursor = "auto";
 	setTimeout(() => { document.body.style.cursor = "none";}, 5000);
     });
     let openWindow = document.querySelector("#open-window");
