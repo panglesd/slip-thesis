@@ -27,7 +27,10 @@ parseAndFormat();
 
 let Engine = function() {
     // Constants
-    
+    document.body.style.cursor = "auto";
+    document.body.addEventListener("mousemove", (ev) => {
+	setTimeout(() => { document.body.style.cursor = "none";}, 5000);
+    });
     let openWindow = document.querySelector("#open-window");
     let universe = document.querySelector("#universe");
     let slides = universe.querySelectorAll(".slide");
