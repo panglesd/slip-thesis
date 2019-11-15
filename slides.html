@@ -192,7 +192,7 @@
 					    \(\exists m, n=2m\) is \(\Sigma_1\) <span class="h0">while</span> \(\forall n\ \exists m, f(n)=m\) is \(\Pi_2\)
 					</div>
 					<div class="example8" style="transition: left 0.5s; position:relative; top: 40px; left: 150%;white-space:nowrap;width:100%;text-align:center">
-					    The set of even integers is at most \(\Sigma_1\) <span class="h0">while</span> The set of total functions is \(\Pi_2\)
+					    The set of even integers is \(\Sigma_1\) <span class="h0">while</span> The set of total functions is \(\Pi_2\)
 					</div>
 					<div class="example9" style="transition: left 0.5s; position:relative; top: 40px; left: 150%;white-space:nowrap;width:100%;text-align:center">
 					    <!-- L'ensemble des entiers pair est aussi \(\Pi_1\) par la formule \( \), il est donc \(\Delta_1\). -->
@@ -513,6 +513,13 @@
 				    </div>
 				</div>
 				<!-- <ul><li>Temps dépendant de l'entrée</li><li>Historique incomplet</li><li>Bonne relativisation</li></ul> -->
+				<div class="theorem h0 relation-alpha">
+				    <ul>
+					<li><span class="lambda">\(\lambda\)</span>-computability and writability coincide</li>
+					<li><span class="zeta">\(\zeta\)</span>-computability and eventual writability coincide</li>
+					<li><span class="Sigma">\(\Sigma\)</span>-computability and accidental writability coincide</li>
+				    </ul>
+				</div>
 				<div class="definition h0 cm1">
 				    <ul>
 					<li>
@@ -524,19 +531,12 @@
 					</li>
 				    </ul>
 				</div>
-				<div class="theorem h0 relation-alpha">
-				    <ul>
-					<li><span class="lambda">\(\lambda\)</span>-computability and writability coincide</li>
-					<li><span class="zeta">\(\zeta\)</span>-computability and eventual writability coincide</li>
-					<li><span class="Sigma">\(\Sigma\)</span>-computability and accidental writability coincide</li>
-				    </ul>
-				</div>
 			    </div>
 			</div>
 			
 			<div class="slide permanent no-flex" id="higher-def" pos-x="2" pos-y="3.6" scale="0.33" rotate="0" delay="1" style="">
 			    <div class="slide-body-container">
-				<h1 style="text-align:center">Higher Recursion</h1>
+				<h1 style="text-align:center">Higher Computability</h1>
 				<div class="definition h0 c1">
 				    <ul>
 					<li>A set \(A\subseteq\mathbb N\) is \(\Sigma^1_1\) if it is definable by a formula of he form $$\exists X\in \mathcal P(\mathbb N),\ \psi(X,x)$$ where \(\psi(X,x)\) is arithmetic.</li>
@@ -576,7 +576,7 @@
 			
 			<div class="slide permanent no-flex" id="alpha-rec-def" pos-x="1.6666" pos-y="3.6" scale="0.33" rotate="0" delay="1" style="">
 			    <div class="slide-body-container">
-				<h1 style="text-align:center">\(\alpha\)-recursion</h1>
+				<h1 style="text-align:center">\(\alpha\)-computability</h1>
 				<canvas class="omegaForAlpha h0 c0" width="5000" height="100" ></canvas>
 				<!-- Passer du temps fini au temps infini. -->
 				<ul class="h0 c0">
@@ -605,8 +605,8 @@
 				    We say that \(A\subseteq\mathbb N\) is
 				    <ul>
 					<li>\(\alpha\)-computable if \(A\) is \(\Delta_1\)-definable in \(L_\alpha\).</li>
-					<li>\(\alpha\)-r.e. if \(A\) is \(\Sigma_1\)-definable in \(L_\alpha\).</li>
-					<li>\(\alpha\)-co-r.e. if \(A\) is \(\Pi_1\)-definable in \(L_\alpha\).</li>
+					<li>\(\alpha\)-c.e. if \(A\) is \(\Sigma_1\)-definable in \(L_\alpha\).</li>
+					<li>\(\alpha\)-co-c.e. if \(A\) is \(\Pi_1\)-definable in \(L_\alpha\).</li>
 				    </ul>
 				(<span class="c5">\(\omega\)-computability corresponds to classical computability</span>)
 				</div>
@@ -757,10 +757,10 @@
 				    </div>
 				</div>
 				<div class="h0 cm2">
-				    <h1>Randomness for \(\alpha\)-recursion and Infinite Time Turing Machine</h1>
+				    <h1>Randomness for \(\alpha\)-computability and Infinite Time Turing Machine</h1>
 				    The extension of the definitions from higher order randomness is straightforward:
 				</div>
-				<div class="definition h0 c3" title="randomness over \(L_\alpha\), Carl and Schlicht">
+				<div class="definition h0 c3" title="randomness over L_α, Carl and Schlicht">
 				    A real \(x\) is random over \(L_\alpha\) if it avoids every set \(A\subseteq\mathbb R\), <span class="simple">with Borel code in \(L_\alpha\)</span> and of <span class="discriminante">measure 0</span>.
 				</div>
 				<div class="definition h0 c4" title="ITTM-randomness, Carl and Schlicht">
@@ -947,7 +947,7 @@
 				     $$\Sigma^1_1\text{-}\mathrm{AC}_{2}\not\leq_{\mathrm W}\Sigma^1_1\text{-}\mathrm{DC}_{2}$$
 				     </div> -->
 				<div class="theorem" title="Kihara, A. d'A.">
-				    $$\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb N}\not\leq_{\mathrm W}\Sigma^1_1\text{-}\mathrm{DC}_{\mathbb N}$$
+				    $${\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb N}}\not\leq_{\mathrm W}\Sigma^1_1\text{-}\mathrm{DC}_{\mathbb N}$$
 				    $$\mathrm{ATR}\not\leq_{\mathrm W}\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb N}$$
 				</div>
 				<!-- <div class="custom-canvas">
