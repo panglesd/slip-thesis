@@ -564,7 +564,7 @@ let ittmsDef = new Slide("ittms-def", (slide, engine, presentation) => {
 	// engine.moveWindowRelative(0,0.2,0,0,1);
     }, (slide, engine, presentation) => {
 	slide.query(".cm1").style.opacity = "1";
-	this.d4 = ((slide.query(".relation-alpha").offsetTop+slide.query(".relation-alpha").offsetHeight)/1080-1+0.0125)*slide.scale -(this.d1 + this.d2 + this.d3) ;
+	this.d4 = ((slide.query(".cm1").offsetTop+slide.query(".cm1").offsetHeight)/1080-1+0.0125)*slide.scale -(this.d1 + this.d2 + this.d3) ;
 	engine.moveWindowRelative(0,this.d4,0,0,1);
 	slide.query(".relation-alpha").style.opacity = "1";
     }
