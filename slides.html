@@ -916,57 +916,96 @@
 					<li class="e3">\(S_0=g(S_1, I_0)\) is a solution for \(I_0\)</li>
 				    </ul>
 				</div>
-<div class="h0 cm5">				<h1>Comparing the axioms of choice</h1>
-				<!-- <div>
-				     <div>
-				     <div>\(A_0\subseteq\{0;1\}\)</div>
-				     <div>\(A_1\subseteq\{0;1\}\)</div>
-				     <div>\(A_2\subseteq\{0;1\}\)</div>
-				     <div>\(A_3\subseteq\{0;1\}\)</div>
-				     <div>\(A_4\subseteq\{0;1\}\)</div>
-				     </div>
-				     <div>
-				     <div>Instance: \((A_n)_{n\in\omega}\), with \(A_n\neq\emptyset\) \(\Sigma^1_1\)</div>
-				     <div>Solution: \((a_n)_{n\in\omega}\), with \(a_n\in A_n\)</div>
-				     </div>
-				     </div> -->
-				<!-- <div>
-				     <div>
-				     <div>\(A_0\subseteq\{0;1\}\)</div>
-				     <div>\(A_1\subseteq\{0;1\}\)</div>
-				     <div>\(A_2\subseteq\{0;1\}\)</div>
-				     <div>\(A_3\subseteq\{0;1\}\)</div>
-				     <div>\(A_4\subseteq\{0;1\}\)</div>
-				     </div>
-				     <div>
-				     <div>Instance: \(T\) a \(\Sigma^1_1\) tree, with \([T]\neq\emptyset\)</div>
-				     <div>Solution: \(p\in[T]\)</div>
-				     </div>
-				     </div> -->
-				<!-- <div class="theorem">
-				     $$\Sigma^1_1\text{-}\mathrm{AC}_{2}\not\leq_{\mathrm W}\Sigma^1_1\text{-}\mathrm{DC}_{2}$$
-				     </div> -->
-				<div class="theorem" title="Kihara, A. d'A.">
-				    $${\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb N}}\not\leq_{\mathrm W}\Sigma^1_1\text{-}\mathrm{DC}_{\mathbb N}$$
-				    $$\mathrm{ATR}\not\leq_{\mathrm W}\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb N}$$
-				</div>
-				<!-- <div class="custom-canvas">
-				     <div class="point"></div>
-				     <div class="line"></div>
-				     <div class="point"></div>
-				     <div class="line"></div>
-				     <div class="point"></div>
-				     <div class="line"></div>
-				     <div class="point"></div>
-				     <div class="line"></div>
-				     </div> -->
-				<div class="theorem" title="Kihara, A. d'A.">
-				    <div style="text-align: center">
-					<img style="width:70%; padding:50px" src="hierarchyChoice4.svg"/>
+				<div class="h0 cm5">
+				    <h1>Comparing analytical axioms of choice</h1>
+				    
+				    <!-- <div>
+					 <div>
+					 <div>\(A_0\subseteq\{0;1\}\)</div>
+					 <div>\(A_1\subseteq\{0;1\}\)</div>
+					 <div>\(A_2\subseteq\{0;1\}\)</div>
+					 <div>\(A_3\subseteq\{0;1\}\)</div>
+					 <div>\(A_4\subseteq\{0;1\}\)</div>
+					 </div>
+					 <div>
+					 <div>Instance: \((A_n)_{n\in\omega}\), with \(A_n\neq\emptyset\) \(\Sigma^1_1\)</div>
+					 <div>Solution: \((a_n)_{n\in\omega}\), with \(a_n\in A_n\)</div>
+					 </div>
+					 </div> -->
+				    <!-- <div>
+					 <div>
+					 <div>\(A_0\subseteq\{0;1\}\)</div>
+					 <div>\(A_1\subseteq\{0;1\}\)</div>
+					 <div>\(A_2\subseteq\{0;1\}\)</div>
+					 <div>\(A_3\subseteq\{0;1\}\)</div>
+					 <div>\(A_4\subseteq\{0;1\}\)</div>
+					 </div>
+					 <div>
+					 <div>Instance: \(T\) a \(\Sigma^1_1\) tree, with \([T]\neq\emptyset\)</div>
+					 <div>Solution: \(p\in[T]\)</div>
+					 </div>
+					 </div> -->
+				    <!-- <div class="theorem">
+					 $$\Sigma^1_1\text{-}\mathrm{AC}_{2}\not\leq_{\mathrm W}\Sigma^1_1\text{-}\mathrm{DC}_{2}$$
+					 </div> -->
+				    <!-- <canvas width="1000" height="1000"></canvas> -->
+				    <div class="definition def-ac-2" title="Analytical axiom of choice">
+				    	<span class="ac-2 emphasize">\({\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb 2}}\)</span> is the problem with <span class="instance-ac-2">instance: a list of non empty \(\mathbf{\Sigma^1_1}\) sets \(A_n\subseteq \{0;1\}\)</span>, and <span class="solution-ac-2">solution: an element \(a_n\in A_n\) for each \(n\)</span>.
 				    </div>
-				</div>
-</div>				<!-- Appliquons cette réduction pour comparer deux versions de l'axiome du choix.
-				     <h2>Choix dépendant</h2> -->
+				    <div style="display:none" class="definition def-dc-2" title="Analytical axiom of dependent choice">
+				    	<span class="dc-2 emphasize">\({\Sigma^1_1\text{-}\mathrm{DC}_{\mathbb 2}}\)</span> is the problem with <span class="instance-dc-2">instance: a \(\mathbf{\Sigma^1_1}\) tree \(T\subseteq \{0;1\}^{<\omega}\) with a path</span>, and <span class="solution-dc-2">solution: an element \((a_n)_{n\in\mathbb N}\in [T]\)</span>.
+				    </div>
+				    <div style="display:none" class="theorem ac-vs-dc-2">
+					$${\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb 2}}\leq_{\mathrm W} {\Sigma^1_1\text{-}\mathrm{DC}_{\mathbb 2}}$$
+				    </div>
+				    <div style="display: none" class="block question-ac-vs-dc-n" title="Question">
+					Do we also have \({\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb 2}}\leq_{\mathrm W} {\Sigma^1_1\text{-}\mathrm{DC}_{\mathbb 2}}\)?
+				    </div>
+				    <div class="custom-canvas">
+					<div style="font-size:40px;" class="enumeration">Co-enumerations in time \(\omega_1^{\mathrm{CK}}\)</div>
+					<div style="font-size:40px;" class="ppp p0">\(\vdots\)</div>
+					<div style="font-size:40px;" class="ppp p1">\(\vdots\)</div>
+					<div style="font-size:40px;" class="ppp p2">\(\vdots\)</div>
+					<div style="font-size:40px;" class="ppp p3">\(\vdots\)</div>
+					<div style="font-size:40px;" class="ppp p4">\(\vdots\)</div>
+					<div style="font-size:40px;" class="ppp p5">\(\vdots\)</div>
+					<div style="font-size:40px;" class="ppp p6">\(\vdots\)</div>
+					<div style="font-size:40px;" class="ppp p7">\(\vdots\)</div>
+					<div style="font-size:40px;" class="a0 ai">\(A_0=\{\ \ \ \ \ \ \ \ \ \ \ \ \ \}\)</div>
+					<div style="font-size:40px;" class="a1 ai">\(A_1=\{\ \ \ \ \ \ \ \ \ \ \ \ \ \}\)</div>
+					<div style="font-size:40px;" class="a2 ai">\(A_2=\{\ \ \ \ \ \ \ \ \ \ \ \ \ \}\)</div>
+					<div style="font-size:40px;" class="a3 ai">\(A_3=\{\ \ \ \ \ \ \ \ \ \ \ \ \ \}\)</div>
+					<div style="font-size:40px;" class="a4 ai">\(A_4=\{\ \ \ \ \ \ \ \ \ \ \ \ \ \}\)</div>
+					<div style="font-size:40px;" class="a5 ai">\(A_5=\{\ \ \ \ \ \ \ \ \ \ \ \ \ \}\)</div>
+					<div style="font-size:40px;" class="a6 ai">\(A_6=\{\ \ \ \ \ \ \ \ \ \ \ \ \ \}\)</div>
+					<div style="font-size:40px;" class="a7 ai">\(A_7=\{\ \ \ \ \ \ \ \ \ \ \ \ \ \}\)</div>
+					<div style="font-size:40px;" class="aj h0">\(A_i=\{\)</div>
+					<!-- <div class="point"></div>
+					     <div class="line"></div>
+					     <div class="point"></div>
+					     <div class="line"></div>
+					     <div class="point"></div>
+					     <div class="line"></div>
+					     <div class="point"></div>
+					     <div class="line"></div> -->
+				    </div>
+				    <!-- <div class="block h0 question-ac-vs-dc-n" title="Question">
+					 Do we also have \({\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb 2}}\leq_{\mathrm W} {\Sigma^1_1\text{-}\mathrm{DC}_{\mathbb 2}}\)?
+					 </div> -->
+				    <!-- <div class="custom-canvas-2 custom-canvas h0">
+					 <div style="font-size:40px;" class="aj">\(A_i=\{\)</div>
+					 </div> -->
+				    <div class="h0 theorem th-1" title="Kihara, A. d'A.">
+					$${\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb N}}\not\leq_{\mathrm W}\Sigma^1_1\text{-}\mathrm{DC}_{\mathbb N}$$
+					$$\mathrm{ATR}\not\leq_{\mathrm W}\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb N}$$
+				    </div>
+				    <div class="h0 theorem th-2" title="Kihara, A. d'A.">
+					<div style="text-align: center">
+					    <img style="width:70%; padding:50px" src="hierarchyChoice4.svg"/>
+					</div>
+				    </div>
+				</div>				<!-- Appliquons cette réduction pour comparer deux versions de l'axiome du choix.
+								     <h2>Choix dépendant</h2> -->
 			    </div>
 			</div>
 			<!-- <div class="slide permanent no-flex" id="weihrauch-intro" pos-x="5" pos-y="3" scale="1" rotate="0" delay="1" style="">

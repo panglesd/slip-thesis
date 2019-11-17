@@ -325,3 +325,31 @@ let Presentation = function (ls, ng) {
 };
 
 
+let addPoint = (p) => {
+    let x=p.x;
+    let y=p.y;
+    let canvas = document.querySelector(".custom-canvas");
+    let point = document.createElement("div");
+    point.classList.add("point");
+    point.style.top = y+"px";
+    point.style.left = x+"px";
+    canvas.appendChild(point);
+    return point;
+};
+let addLine = (p0, p1) => {
+    let x0 = p0.x, y0 = p0.y, x1 = p1.x, y1 = p1.y;
+    let canvas = document.querySelector(".custom-canvas");
+    let line = document.createElement("div");
+    line.classList.add("line", "movable");
+    line.style.top = (y0+12)+"px";
+    line.style.left = (x0+15)+"px";
+    line.style.width = (Math.sqrt((y1-y0)*(y1-y0)+(x1-x0)*(x1-x0)))+"px";
+    let deg = Math.atan((y1-y0)/(x1-x0))/Math.PI*180;
+    if(x1-x0<0)
+	deg = deg+180;
+    line.style.transform="rotate("+deg+"deg)";
+    canvas.appendChild(line);
+    return line;
+
+    
+};

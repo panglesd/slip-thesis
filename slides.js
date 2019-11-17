@@ -1223,7 +1223,468 @@ let weihrauchIntro = new Slide("weihrauch-intro", (slide, engine, presentation) 
     }, (slide, engine, presentation) => {
 	engine.moveWindowRelative(0,1.05,0,0,1);
     }, (slide, engine, presentation) => {
-	engine.moveWindowRelative(-1.5,-0.5,0,0,1);	    
+	slide.queryAll(".ai").forEach((elem, index) => {
+	    elem.style.visibility = "visible";
+	    elem.style.top = (50+index*100)+"px";
+	});
+	slide.query(".enumeration").style.visibility = "visible";
+	slide.query(".ac-2").classList.remove("emphasize");
+	slide.query(".instance-ac-2").classList.add("emphasize");
+	let gauche = 775, droite = 850;
+	this.p1p = {x: gauche, y:50+20};
+	this.p2p = { x: droite, y: (50+20)};
+	this.p3p = { x: gauche, y: (50+20+100)};
+	this.p4p = { x: droite, y: (50+20+100)};
+	this.p5p = { x: gauche, y: (50+20+2*100)};
+	this.p6p = { x: droite, y: (50+20+2*100)};
+	this.p7p = { x: gauche, y: (50+20+3*100)};
+	this.p8p = { x: droite, y: (50+20+3*100)};
+	this.p9p = { x: gauche, y: (50+20+4*100)};
+	this.p10p = { x: droite, y: (50+20+4*100)};
+	this.p11p = { x: gauche, y: (50+20+5*100)};
+	this.p12p = { x: droite, y: (50+20+5*100)};
+	this.p13p = { x: gauche, y: (50+20+6*100)};
+	this.p14p = { x: droite, y: (50+20+6*100)};
+	this.p1p.elem = addPoint(this.p1p);
+	this.p2p.elem = addPoint(this.p2p);
+	this.p3p.elem = addPoint(this.p3p);
+	this.p4p.elem = addPoint(this.p4p);
+	this.p5p.elem = addPoint(this.p5p);
+	this.p6p.elem = addPoint(this.p6p);
+	this.p7p.elem = addPoint(this.p7p);
+	this.p8p.elem = addPoint(this.p8p);
+	this.p9p.elem = addPoint(this.p9p);
+	this.p10p.elem = addPoint(this.p10p);
+	this.p11p.elem = addPoint(this.p11p);
+	this.p12p.elem = addPoint(this.p12p);
+	this.p13p.elem = addPoint(this.p13p);
+	this.p14p.elem = addPoint(this.p14p);
+    }, (slide, engine, presentation) => {
+	setTimeout(() => {
+	    this.p13p.elem.style.borderColor = "lightGrey";
+	}, 000);
+	setTimeout(() => {
+	    this.p10p.elem.style.borderColor = "lightGrey";
+	}, 500);
+	setTimeout(() => {
+	    // this.p9p.elem.style.borderColor = "lightGrey";
+	}, 1000);
+	setTimeout(() => {
+	    this.p8p.elem.style.borderColor = "lightGrey";
+	}, 1000);
+	setTimeout(() => {
+	    // this.p7p.elem.style.borderColor = "lightGrey";
+	}, 1500);
+	setTimeout(() => {
+	    // this.p3p.elem.style.borderColor = "lightGrey";
+	}, 1500);
+	setTimeout(() => {
+	    this.p4p.elem.style.borderColor = "lightGrey";
+	}, 2000);
+	setTimeout(() => {
+	    this.p1p.elem.style.borderColor = "lightGrey";
+	}, 2000);
+	
+    }, (slide, engine, presentation) => {
+	slide.query(".instance-ac-2").classList.remove("emphasize");
+	slide.query(".solution-ac-2").classList.add("emphasize");
+	this.p2p.elem.style.borderColor = "red";
+	this.p5p.elem.style.borderColor = "red";
+	this.p12p.elem.style.borderColor = "red";
+	this.p4p.elem.style.borderColor = "red";
+	this.p7p.elem.style.borderColor = "red";
+	this.p9p.elem.style.borderColor = "red";
+	this.p14p.elem.style.borderColor = "red";
+
+    }, (slide, engine, presentation) => {
+	slide.query(".def-ac-2").style.display = "none";
+	slide.query(".def-dc-2").style.display = "block";
+	slide.query(".enumeration").style.visibility = "hidden";
+	slide.queryAll(".ai").forEach((elem) => {elem.style.visibility = "hidden";});
+	this.p1p.elem.parentNode.removeChild(this.p1p.elem);
+	this.p2p.elem.parentNode.removeChild(this.p2p.elem);
+	this.p3p.elem.parentNode.removeChild(this.p3p.elem);
+	this.p4p.elem.parentNode.removeChild(this.p4p.elem);
+	this.p5p.elem.parentNode.removeChild(this.p5p.elem);
+	this.p6p.elem.parentNode.removeChild(this.p6p.elem);
+	this.p7p.elem.parentNode.removeChild(this.p7p.elem);
+	this.p8p.elem.parentNode.removeChild(this.p8p.elem);
+	this.p9p.elem.parentNode.removeChild(this.p9p.elem);
+	this.p10p.elem.parentNode.removeChild(this.p10p.elem);
+	this.p11p.elem.parentNode.removeChild(this.p11p.elem);
+	this.p12p.elem.parentNode.removeChild(this.p12p.elem);
+	this.p13p.elem.parentNode.removeChild(this.p13p.elem);
+	this.p14p.elem.parentNode.removeChild(this.p14p.elem);
+    }, (slide, engine, presentation) => {
+	slide.query(".enumeration").style.visibility = "visible";
+	slide.query(".dc-2").classList.remove("emphasize");
+	slide.query(".instance-dc-2").classList.add("emphasize");
+	this.tab = [];
+	let h=100;
+	let d = 100;
+	this.p0 = {x:200, y:50};
+	this.p1 = {x:this.p0.x-d, y:this.p0.y+h};
+	this.p2 = {x:this.p0.x+d, y:this.p0.y+h};
+	this.p3 = {x:this.p1.x-d/2, y:this.p1.y+h};
+	this.p4 = {x:this.p1.x+d/2, y:this.p1.y+h};
+	this.p5 = {x:this.p2.x-d/2, y:this.p2.y+h};
+	this.p6 = {x:this.p2.x+d/2, y:this.p2.y+h};
+	this.p7 = {x:this.p3.x-d/4, y:this.p3.y+h};
+	this.p8 = {x:this.p3.x+d/4, y:this.p3.y+h};
+	this.p9 = {x:this.p4.x-d/4, y:this.p4.y+h};
+	this.p10 = {x:this.p4.x+d/4, y:this.p4.y+h};
+	this.p11 = {x:this.p5.x-d/4, y:this.p5.y+h};
+	this.p12 = {x:this.p5.x+d/4, y:this.p5.y+h};
+	this.p13 = {x:this.p6.x-d/4, y:this.p6.y+h};
+	this.p14 = {x:this.p6.x+d/4, y:this.p6.y+h};
+	this.tab["0-1"] = addLine(this.p0, this.p1);
+	this.tab["0-2"] = addLine(this.p0, this.p2);
+	this.tab["1-3"] = addLine(this.p1, this.p3);
+	this.tab["1-4"] = addLine(this.p1, this.p4);
+	this.tab["2-5"] = addLine(this.p2, this.p5);
+	this.tab["2-6"] = addLine(this.p2, this.p6);
+	this.tab["3-7"] = addLine(this.p3, this.p7);
+	this.tab["3-8"] = addLine(this.p3, this.p8);
+	this.tab["4-9"] = addLine(this.p4, this.p9);
+	this.tab["4-10"] = addLine(this.p4, this.p10);
+	this.tab["5-11"] = addLine(this.p5, this.p11);
+	this.tab["5-12"] = addLine(this.p5, this.p12);
+	this.tab["6-13"] = addLine(this.p6, this.p13);
+	this.tab["6-14"] = addLine(this.p6, this.p14);
+	// console.log(tab.length);
+	this.p0.elem = addPoint(this.p0);
+	this.p1.elem = addPoint(this.p1);
+	this.p2.elem = addPoint(this.p2);
+	this.p3.elem = addPoint(this.p3);
+	this.p4.elem = addPoint(this.p4);
+	this.p5.elem = addPoint(this.p5);
+	this.p6.elem = addPoint(this.p6);
+	this.p7.elem = addPoint(this.p7);
+	this.p8.elem = addPoint(this.p8);
+	this.p9.elem = addPoint(this.p9);
+	this.p10.elem = addPoint(this.p10);
+	this.p11.elem = addPoint(this.p11);
+	this.p12.elem = addPoint(this.p12);
+	this.p13.elem = addPoint(this.p13);
+	this.p14.elem = addPoint(this.p14);
+	slide.queryAll(".ppp").forEach((elem, index) => {
+	    elem.style.left = (25+25/3+50*index)+"px";
+	    elem.style.visibility = "visible";
+	});
+	// this.p7 = addPoint(400, 50);
+	// this.l0 = addLine();
+    }, (slide, engine, presentation) => {
+	setTimeout(() => {
+	    this.p13.elem.style.borderColor = "lightGrey";
+	    this.tab["6-13"].style.borderColor = "lightGrey";
+	    slide.query(".p6.ppp").style.color = "lightGrey";
+	}, 000);
+	setTimeout(() => {
+	    this.p10.elem.style.borderColor = "lightGrey";
+	    slide.query(".p3.ppp").style.color = "lightGrey";
+	    this.tab["4-10"].style.borderColor = "lightGrey";
+	}, 500);
+	setTimeout(() => {
+	    this.p9.elem.style.borderColor = "lightGrey";
+	    slide.query(".p2.ppp").style.color = "lightGrey";
+	    this.tab["4-9"].style.borderColor = "lightGrey";
+	}, 1000);
+	setTimeout(() => {
+	    this.p8.elem.style.borderColor = "lightGrey";
+	    slide.query(".p1.ppp").style.color = "lightGrey";
+	    this.tab["3-8"].style.borderColor = "lightGrey";
+	}, 1000);
+	setTimeout(() => {
+	    this.p7.elem.style.borderColor = "lightGrey";
+	    slide.query(".p0.ppp").style.color = "lightGrey";
+	    this.tab["3-7"].style.borderColor = "lightGrey";
+	}, 1500);
+	setTimeout(() => {
+	    this.p3.elem.style.borderColor = "lightGrey";
+	    this.tab["1-3"].style.borderColor = "lightGrey";
+	}, 1500);
+	setTimeout(() => {
+	    this.p4.elem.style.borderColor = "lightGrey";
+	    this.tab["1-4"].style.borderColor = "lightGrey";
+	}, 2000);
+	setTimeout(() => {
+	    this.p1.elem.style.borderColor = "lightGrey";
+	    this.tab["0-1"].style.borderColor = "lightGrey";
+	}, 2000);
+	
+    }, (slide, engine, presentation) => {
+	slide.query(".instance-dc-2").classList.remove("emphasize");
+	slide.query(".solution-dc-2").classList.add("emphasize");
+
+	this.p0.elem.style.borderColor = "red";
+	this.tab["0-2"].style.borderColor = "red";
+	this.p2.elem.style.borderColor = "red";
+	this.tab["2-5"].style.borderColor = "red";
+	this.p5.elem.style.borderColor = "red";
+	this.tab["5-12"].style.borderColor = "red";
+	this.p12.elem.style.borderColor = "red";
+
+	// this.p4.elem.style.borderColor = "red";
+	// this.tab["1-4"].style.borderColor = "red";
+	// this.p7.elem.style.borderColor = "red";
+	// this.tab["3-7"].style.borderColor = "red";
+	// this.p9.elem.style.borderColor = "red";
+	// this.tab["4-9"].style.borderColor = "red";
+
+	slide.query(".p5.ppp").style.color = "red";
+
+    }, (slide, engine, presentation) => {
+	slide.query(".def-dc-2").style.display = "none";
+	slide.query(".ac-vs-dc-2").style.display = "block";
+
+	slide.queryAll(".line").forEach((elem) => {
+	    elem.style.borderColor = "black";
+	});
+	slide.queryAll(".point").forEach((elem) => {
+	    elem.style.borderColor = "black";
+	});
+	slide.queryAll(".ppp").forEach((elem) => {
+	    elem.style.color = "black";
+	});
+	slide.queryAll(".ai").forEach((elem) => {
+	    elem.style.visibility = "visible";
+	});
+
+    }, (slide, engine, presentation) => {
+	setTimeout(() => {
+	    this.p13.elem.style.borderColor = "lightGrey";
+	    this.tab["6-13"].style.borderColor = "lightGrey";
+	    slide.query(".p6.ppp").style.color = "lightGrey";
+	}, 000);
+	setTimeout(() => {
+	    this.p10.elem.style.borderColor = "lightGrey";
+	    slide.query(".p3.ppp").style.color = "lightGrey";
+	    this.tab["4-10"].style.borderColor = "lightGrey";
+	}, 500);
+	setTimeout(() => {
+	    this.p9.elem.style.borderColor = "lightGrey";
+	    slide.query(".p2.ppp").style.color = "lightGrey";
+	    this.tab["4-9"].style.borderColor = "lightGrey";
+	}, 1000);
+	setTimeout(() => {
+	    this.p8.elem.style.borderColor = "lightGrey";
+	    slide.query(".p1.ppp").style.color = "lightGrey";
+	    this.tab["3-8"].style.borderColor = "lightGrey";
+	}, 1000);
+	setTimeout(() => {
+	    this.p7.elem.style.borderColor = "lightGrey";
+	    slide.query(".p0.ppp").style.color = "lightGrey";
+	    this.tab["3-7"].style.borderColor = "lightGrey";
+	}, 1500);
+	setTimeout(() => {
+	    this.p3.elem.style.borderColor = "lightGrey";
+	    this.tab["1-3"].style.borderColor = "lightGrey";
+	}, 1500);
+	setTimeout(() => {
+	    this.p4.elem.style.borderColor = "lightGrey";
+	    this.tab["1-4"].style.borderColor = "lightGrey";
+	}, 2000);
+	setTimeout(() => {
+	    this.p1.elem.style.borderColor = "lightGrey";
+	    this.tab["0-1"].style.borderColor = "lightGrey";
+	}, 2000);
+	
+    }, (slide, engine, presentation) => {
+	let gauche = "775px", droite = "850px";
+	this.p1.elem.style.left = gauche;
+	this.p1.elem.style.top = (50+20)+"px";
+	this.p2.elem.style.left = droite;
+	this.p2.elem.style.top = (50+20)+"px";
+	this.p3.elem.style.left = gauche;
+	this.p3.elem.style.top = (50+20+100)+"px";
+	this.p4.elem.style.left = droite;
+	this.p4.elem.style.top = (50+20+100)+"px";
+	this.p5.elem.style.left = gauche;
+	this.p5.elem.style.top = (50+20+2*100)+"px";
+	this.p6.elem.style.left = droite;
+	this.p6.elem.style.top = (50+20+2*100)+"px";
+	this.p7.elem.style.left = gauche;
+	this.p7.elem.style.top = (50+20+3*100)+"px";
+	this.p8.elem.style.left = droite;
+	this.p8.elem.style.top = (50+20+3*100)+"px";
+	this.p9.elem.style.left = gauche;
+	this.p9.elem.style.top = (50+20+4*100)+"px";
+	this.p10.elem.style.left = droite;
+	this.p10.elem.style.top = (50+20+4*100)+"px";
+	this.p11.elem.style.left = gauche;
+	this.p11.elem.style.top = (50+20+5*100)+"px";
+	this.p12.elem.style.left = droite;
+	this.p12.elem.style.top = (50+20+5*100)+"px";
+	this.p13.elem.style.left = gauche;
+	this.p13.elem.style.top = (50+20+6*100)+"px";
+	this.p14.elem.style.left = droite;
+	this.p14.elem.style.top = (50+20+6*100)+"px";
+    }, (slide, engine, presentation) => {
+	slide.queryAll(".line").forEach((elem) => {
+	    elem.style.borderColor = "black";
+	});
+	slide.queryAll(".point").forEach((elem) => {
+	    elem.style.borderColor = "black";
+	});
+    }, (slide, engine, presentation) => {
+	setTimeout(() => {
+	    this.p13.elem.style.borderColor = "lightGrey";
+	    this.tab["6-13"].style.borderColor = "lightGrey";
+	    slide.query(".p6.ppp").style.color = "lightGrey";
+	}, 0000);
+	setTimeout(() => {
+	    this.p10.elem.style.borderColor = "lightGrey";
+	    slide.query(".p3.ppp").style.color = "lightGrey";
+	    this.tab["4-10"].style.borderColor = "lightGrey";
+	}, 0500);
+	setTimeout(() => {
+	    this.p9.elem.style.borderColor = "purple";
+	    slide.query(".p2.ppp").style.color = "lightGrey";
+	    this.tab["4-9"].style.borderColor = "lightGrey";
+	}, 1000);
+	setTimeout(() => {
+	    this.p8.elem.style.borderColor = "lightGrey";
+	    slide.query(".p1.ppp").style.color = "lightGrey";
+	    this.tab["3-8"].style.borderColor = "lightGrey";
+	}, 1000);
+	setTimeout(() => {
+	    this.p7.elem.style.borderColor = "purple";
+	    slide.query(".p0.ppp").style.color = "lightGrey";
+	    this.tab["3-7"].style.borderColor = "lightGrey";
+	}, 1500);
+	setTimeout(() => {
+	    this.p3.elem.style.borderColor = "lightGrey";
+	    this.tab["1-3"].style.borderColor = "lightGrey";
+	}, 1500);
+	setTimeout(() => {
+	    this.p4.elem.style.borderColor = "purple";
+	    this.tab["1-4"].style.borderColor = "lightGrey";
+	}, 2000);
+	setTimeout(() => {
+	    this.p1.elem.style.borderColor = "lightGrey";
+	    this.tab["0-1"].style.borderColor = "lightGrey";
+	}, 2000);
+	
+    }, (slide, engine, presentation) => {
+	this.p0.elem.style.borderColor = "red";
+	this.tab["0-2"].style.borderColor = "red";
+	this.p2.elem.style.borderColor = "red";
+	this.tab["2-5"].style.borderColor = "red";
+	this.p5.elem.style.borderColor = "red";
+	this.tab["5-12"].style.borderColor = "red";
+	this.p12.elem.style.borderColor = "red";
+
+	this.p4.elem.style.borderColor = "red";
+	this.tab["1-4"].style.borderColor = "red";
+	this.p7.elem.style.borderColor = "red";
+	this.tab["3-7"].style.borderColor = "red";
+	this.p9.elem.style.borderColor = "red";
+	this.tab["4-9"].style.borderColor = "red";
+
+	slide.query(".p5.ppp").style.color = "red";
+    }, (slide, engine, presentation) => {
+	this.p1.elem.style.left = this.p1.x+"px";
+	this.p1.elem.style.top = this.p1.y+"px";
+	this.p2.elem.style.left = this.p2.x+"px";
+	this.p2.elem.style.top = this.p2.y+"px";
+	this.p3.elem.style.left = this.p3.x+"px";
+	this.p3.elem.style.top = this.p3.y+"px";
+	this.p4.elem.style.left = this.p4.x+"px";
+	this.p4.elem.style.top = this.p4.y+"px";
+	this.p5.elem.style.left = this.p5.x+"px";
+	this.p5.elem.style.top = this.p5.y+"px";
+	this.p6.elem.style.left = this.p6.x+"px";
+	this.p6.elem.style.top = this.p6.y+"px";
+	this.p7.elem.style.left = this.p7.x+"px";
+	this.p7.elem.style.top = this.p7.y+"px";
+	this.p8.elem.style.left = this.p8.x+"px";
+	this.p8.elem.style.top = this.p8.y+"px";
+	this.p9.elem.style.left = this.p9.x+"px";
+	this.p9.elem.style.top = this.p9.y+"px";
+	this.p10.elem.style.left = this.p10.x+"px";
+	this.p10.elem.style.top = this.p10.y+"px";
+	this.p11.elem.style.left = this.p11.x+"px";
+	this.p11.elem.style.top = this.p11.y+"px";
+	this.p12.elem.style.left = this.p12.x+"px";
+	this.p12.elem.style.top = this.p12.y+"px";
+	this.p13.elem.style.left = this.p13.x+"px";
+	this.p13.elem.style.top = this.p13.y+"px";
+	this.p14.elem.style.left = this.p14.x+"px";
+	this.p14.elem.style.top = this.p14.y+"px";
+    }, (slide, engine, presentation) => {
+	// slide.query(".custom-canvas").style.display = "none";
+	slide.query(".question-ac-vs-dc-n").style.display = "block";
+	slide.query(".custom-canvas").querySelectorAll("div").forEach((elem) => {
+	    // if(elem.classList.contains("aj"))
+		elem.style.display = "none";
+	});
+    }, (slide, engine, presentation) => {
+	slide.query(".custom-canvas .aj").style.display = "block";
+	slide.query(".custom-canvas .aj").style.visibility = "visible";
+	slide.query(".custom-canvas .aj").style.opacity = "1";
+	let h = 50;
+	this.p1p = {x: 160 + 80*0, y:h};
+	this.p2p = {x: 160 + 80*1, y:h};
+	this.p3p = {x: 160 + 80*2, y:h};
+	this.p4p = {x: 160 + 80*3, y:h};
+	this.p5p = {x: 160 + 80*4, y:h};
+	this.p6p = {x: 160 + 80*5, y:h};
+	this.p7p = {x: 160 + 80*6, y:h};
+	this.p8p = {x: 160 + 80*7, y:h};
+	this.p9p = {x: 160 + 80*8, y:h};
+	this.p10p = {x: 160 + 80*9, y:h};
+	this.p11p = {x: 160 + 80*10, y:h};
+	this.p12p = {x: 160 + 80*11, y:h};
+	this.p13p = {x: 160 + 80*12, y:h};
+	this.p14p = {x: 160 + 80*13, y:h};
+	this.p15p = {x: 160 + 80*14, y:h};
+	this.p16p = {x: 160 + 80*15, y:h};
+	this.p17p = {x: 160 + 80*16, y:h};
+	this.p1p.elem = addPoint(this.p1p);
+	this.p2p.elem = addPoint(this.p2p);
+	this.p3p.elem = addPoint(this.p3p);
+	this.p4p.elem = addPoint(this.p4p);
+	this.p5p.elem = addPoint(this.p5p);
+	this.p6p.elem = addPoint(this.p6p);
+	this.p7p.elem = addPoint(this.p7p);
+	this.p8p.elem = addPoint(this.p8p);
+	this.p9p.elem = addPoint(this.p9p);
+	this.p10p.elem = addPoint(this.p10p);
+	this.p11p.elem = addPoint(this.p11p);
+	this.p12p.elem = addPoint(this.p12p);
+	this.p13p.elem = addPoint(this.p13p);
+	this.p14p.elem = addPoint(this.p14p);
+	this.p15p.elem = addPoint(this.p15p);
+	this.p16p.elem = addPoint(this.p16p);
+	this.p17p.elem = addPoint(this.p17p);
+    }, (slide, engine, presentation) => {
+	setTimeout(() => { this.p1p.elem.style.borderColor = "lightGrey";}, 1*500-500);
+	setTimeout(() => { this.p2p.elem.style.borderColor = "lightGrey";}, 2*500-500);
+	setTimeout(() => { this.p3p.elem.style.borderColor = "lightGrey";}, 3*500-500);
+	setTimeout(() => { this.p4p.elem.style.borderColor = "lightGrey";}, 4*500-500);
+	setTimeout(() => { this.p5p.elem.style.borderColor = "lightGrey";}, 5*500-500);
+	setTimeout(() => { this.p6p.elem.style.borderColor = "lightGrey";}, 6*500-500);
+	setTimeout(() => { this.p7p.elem.style.borderColor = "lightGrey";}, 7*500-500);
+	setTimeout(() => { this.p8p.elem.style.borderColor = "lightGrey";}, 8*500-500);
+	setTimeout(() => { this.p9p.elem.style.borderColor = "lightGrey";}, 9*500-500);
+	setTimeout(() => { this.p10p.elem.style.borderColor = "lightGrey";}, 10*500-500);
+	setTimeout(() => { this.p11p.elem.style.borderColor = "lightGrey";}, 11*500-500);
+	setTimeout(() => { this.p12p.elem.style.borderColor = "lightGrey";}, 12*500-500);
+	setTimeout(() => { this.p13p.elem.style.borderColor = "lightGrey";}, 13*500-500);
+	setTimeout(() => { this.p14p.elem.style.borderColor = "lightGrey";}, 14*500-500);
+	setTimeout(() => { this.p15p.elem.style.borderColor = "lightGrey";}, 15*500-500);
+	setTimeout(() => { this.p16p.elem.style.borderColor = "lightGrey";}, 16*500-500);
+	setTimeout(() => { this.p17p.elem.style.borderColor = "lightGrey";}, 17*500-500);
+	
+    }, (slide, engine, presentation) => {
+	slide.query(".custom-canvas").style.display = "none";
+	slide.query(".th-1").style.opacity = "1";
+    }, (slide, engine, presentation) => {
+	engine.moveWindowRelative(0,0.45,0,0,1);	    
+	slide.query(".th-2").style.opacity = "1";
+	
+    }, (slide, engine, presentation) => {
+	engine.moveWindowRelative(-1.5,-0.95,0,0,1);	    
 	setTimeout(() => {
 	    engine.moveWindowRelative(0,0,7,0,3);
 	}, 500);
