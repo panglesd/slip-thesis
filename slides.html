@@ -102,7 +102,7 @@
 			    <div class="slide-body-container">
 			      <h1 style="text-align: center; font-size:90px"> Computations </h1>
 				<div class="definition block" text="Informelle, calcul">
-				    A computation is the mechanical execution of a set of basic operation.
+				    A computation is the mechanical execution of a set of basic operations.
 				</div>
 				For instance, computers perform computations, as well as us when we sum integers. <!-- Par exemple, les ordinateurs effectuent des calculs. Les enfants aussi quand ils apprennent à poser des additions. -->
 				<div class="definition block h0 above-label">
@@ -164,7 +164,7 @@
 					<li class="h0 c2 emphasize"> A formula is a set of symbols. In particular, "\(\forall\)" means "for all" and "\(\exists\)" means "there exists".</li>
 					<li class="h0 c3 emphasize"> The complexity of a formula is the number of alternation of quantifiers, with a \(\Pi\) when it begins by "\(\forall\)", and a \(\Sigma\) otherwise.</li>
 					<li class="h0 c4 emphasize"> A set is of a given complexity if it is defined by comprehension by a formula of this complexity.</li>
-					<li class="h0 c4 emphasize"> The \(\Delta_n\) sets are those that are both \(\Pi_n\) and \(\Sigma_n\)</li>
+					<li class="h0 c4 emphasize"> The \(\Delta_n\) sets are those that are both \(\Pi_n\) and \(\Sigma_n\).</li>
 				    </ul>
 				</div>
 				<!-- <div style="height:300px;"></div> -->
@@ -196,7 +196,7 @@
 					</div>
 					<div class="example9" style="transition: left 0.5s; position:relative; top: 40px; left: 150%;white-space:nowrap;width:100%;text-align:center">
 					    <!-- L'ensemble des entiers pair est aussi \(\Pi_1\) par la formule \( \), il est donc \(\Delta_1\). -->
-					    Integer quantification : \(\Sigma^{\color{red}0}_n\) <br/> Set of integer quantification : \(\Sigma^{\color{red}1}_n\) 
+					    Integer quantification : \(\Sigma^{\color{red}0}_n\) <br/> Set of integers quantification : \(\Sigma^{\color{red}1}_n\) 
 					</div>
 				    <!-- </div> -->
 				</div>
@@ -495,7 +495,7 @@
 				    </div>
 				    <div title="Welch" class="h0 theorem lambda-zeta-sigma">Let <span class="lambda">\(\lambda\)</span>, <span class="zeta">\(\zeta\)</span> and <span class="Sigma">\(\Sigma\)</span> the lexicographically least triplet of ordinals such that:
 					$$ L_{\color{red}\lambda}\prec_1 L_{\color{blue}\zeta} \prec_2 L_{\color{green}\Sigma}$$
-					Then,
+					Then:
 					<ul>
 					    <li><span class="lambda">\(\lambda\)</span> is the supremum of the <span class="lambda">halting times</span> and of the <span class="lambda">writable ordinals</span> by an ITTM</li>
 					    <li><span class="zeta">\(\zeta\)</span> is the supremum of the <span class="zeta">stabilisation times</span> and of the <span class="zeta">eventually writable ordinals</span> by an ITTM</li>
@@ -504,7 +504,7 @@
 				    </div>
 				    <div title="Welch" class="theorem lambda-zeta-sigma-2" style="display:none">Let <span class="lambda">\(\lambda^x\)</span>, <span class="zeta">\(\zeta^x\)</span> and <span class="Sigma">\(\Sigma^x\)</span> be the lexicographically least triplet of ordinals such that:
 					$$ L_{\color{red}\lambda^x}[x]\prec_1 L_{\color{blue}\zeta^x}[x] \prec_2 L_{\color{green}\Sigma^x}[x]$$
-					Then,
+					Then:
 					<ul>
 					    <li><span class="lambda">\(\lambda^x\)</span> is the supremum of the <span class="lambda">halting times</span> and of the <span class="lambda">writable ordinals</span> by an ITTM relatively to \(x\).</li>
 					    <li><span class="zeta">\(\zeta^x\)</span> is the supremum of the <span class="zeta">stabilisation times</span> and of the <span class="zeta">eventually writable ordinals</span> by an ITTM relatively to \(x\).</li>
@@ -521,14 +521,10 @@
 				    </ul>
 				</div>
 				<div class="definition h0 cm1">
+				    For the subsets of reals \(A\subseteq\mathbb R\):
 				    <ul>
-					<li>
-					    For the subsets if reals\(A\subseteq\mathbb R\):
-					    <ul>
-						<li>ITTM-decidable : \(\forall x\in\mathbb R\), we have \(x\in A\Longleftrightarrow M(x)\downarrow=1\) for some total ITTM \(M\).</li>
-						<li>ITTM-semi-decidable : \(\forall x\in\mathbb R\), we have \(x\in A\Longleftrightarrow M(x)\downarrow\).</li>
-					    </ul>
-					</li>
+					<li>ITTM-decidable : \(\forall x\in\mathbb R\), we have \(x\in A\Longleftrightarrow M(x)\downarrow=1\) for some total ITTM \(M\).</li>
+					<li>ITTM-semi-decidable : \(\forall x\in\mathbb R\), we have \(x\in A\Longleftrightarrow M(x)\downarrow\).</li>
 				    </ul>
 				</div>
 			    </div>
@@ -539,7 +535,7 @@
 				<h1 style="text-align:center">Higher Computability</h1>
 				<div class="definition h0 c1">
 				    <ul>
-					<li>A set \(A\subseteq\mathbb N\) is \(\Sigma^1_1\) if it is definable by a formula of he form $$\exists X\in \mathcal P(\mathbb N),\ \psi(X,x)$$ where \(\psi(X,x)\) is arithmetic.</li>
+					<li>A set \(A\subseteq\mathbb N\) is \(\Sigma^1_1\) if it is definable by a formula of the form $$\exists X\in \mathcal P(\mathbb N),\ \psi(X,x)$$ where \(\psi(X,x)\) is arithmetic.</li>
 					<li>A set \(A\subseteq\mathbb N\) is \(\Pi^1_1\) if its complementary is \(\Sigma^1_1\).</li>
 					<li>A set \(A\subseteq\mathbb N\) is \(\Delta^1_1\) if it is both \(\Sigma^1_1\) and \(\Pi^1_1\).</li>
 				    </ul>
@@ -604,8 +600,8 @@
 				<div class="definition c4 h0" title="α-computability, Sacks">
 				    We say that \(A\subseteq\mathbb N\) is
 				    <ul>
-					<li>\(\alpha\)-computable if \(A\) is \(\Delta_1\)-definable in \(L_\alpha\).</li>
-					<li>\(\alpha\)-c.e. if \(A\) is \(\Sigma_1\)-definable in \(L_\alpha\).</li>
+					<li>\(\alpha\)-computable if \(A\) is \(\Delta_1\)-definable in \(L_\alpha\),</li>
+					<li>\(\alpha\)-c.e. if \(A\) is \(\Sigma_1\)-definable in \(L_\alpha\),</li>
 					<li>\(\alpha\)-co-c.e. if \(A\) is \(\Pi_1\)-definable in \(L_\alpha\).</li>
 				    </ul>
 				(<span class="c5">\(\omega\)-computability corresponds to classical computability</span>)
@@ -788,7 +784,7 @@
 					$$\text{randomness over }L_\Sigma\subsetneq\text{ITTM-ML-randomness}\subsetneq\text{ITTM-randomness}\text{ ?}$$
 				    </div>
 				</div>
-				<div title="Monin, A.d'A." class="theorem h0 c8">Let \(\alpha\) be such that \(L_\alpha\models\text{"everything is countable"}\). Then, the following statements are equivalent:
+				<div title="Monin, A.d'A." class="theorem h0 c8">Let \(\alpha\) be such that \(L_\alpha\models\text{"everything is countable"}\). Then the following statements are equivalent:
 				    <ul>
 					<li>\(\alpha\)-ML-randomness is strictly stronger than randomness over \(L_\alpha\).</li>
 					<li>\(\alpha\) is projectible in \(\omega\).</li>
@@ -844,7 +840,7 @@
 				    </li>
 				    <li class="h0 v2">Second discovery: lots of theorems from Ramsey Theory avoids this structure.</li>
 				</ul>
-				<div class="h0 v3 definition">Two theorems \(T_0\) and \(T_1\) are said <span class="emphasize">equivalents</span> if:
+				<div class="h0 v3 definition">Two theorems \(T_0\) and \(T_1\) are said <span class="emphasize">equivalent</span> if:
 				    <ul><li>Taking \(T_0\) and \(\mathrm{RCA}_0\) as axioms, we can prove \(T_1\)</li>
 					<li>Taking \(T_1\) and \(\mathrm{RCA}_0\) as axioms, we can prove \(T_0\)</li></ul>
 				</div>
