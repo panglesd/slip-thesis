@@ -55,8 +55,8 @@
 				
 				<div style="position:absolute; white-space: nowrap" class="calcul main-title">Infinite Computations</div> <div class="I invisible section main-title">I</div>
 				<div style="position:absolute; white-space: nowrap" class="aleat main-title">Algorithmic randomness</div> <div class="II invisible section main-title">II</div>
-				<div style="position:absolute; white-space: nowrap" class="reverse main-title">Reverse Mathematic</div> <div class="III invisible section main-title">III</div>
-				<div class="main main-title"><span class="calcul2" style="visibility:hidden; white-space: nowrap">Infinite Computations</span> in <span style="visibility:hidden; white-space: nowrap" class="aleat2">Algorithmic Randomness</span> and <span style="visibility:hidden; white-space: nowrap" class="reverse2">Reverse Mathematic</span>.</div>
+				<div style="position:absolute; white-space: nowrap" class="reverse main-title">Reverse Mathematics</div> <div class="III invisible section main-title">III</div>
+				<div class="main main-title"><span class="calcul2" style="visibility:hidden; white-space: nowrap">Infinite Computations</span> in <span style="visibility:hidden; white-space: nowrap" class="aleat2">Algorithmic Randomness</span> and <span style="visibility:hidden; white-space: nowrap" class="reverse2">Reverse Mathematics</span>.</div>
 			    </div>
 			</div>
 			
@@ -608,7 +608,7 @@
 				</div>
 				<span class="h0 c6 emphasize">Not all ordinals are good to bound a computation time:</span>
 				<canvas class="omegaForPlusUn" width="5000" height="100" ></canvas>
-				<div title="Admissibility" class="definition h0 c7">We say that \(\alpha\) is admissible if for all \(f:\beta<\alpha\to\alpha\) \(\alpha\)-computable, we have \(\lim_{\gamma<\beta} f(\gamma)<\alpha\)</div>
+				<div title="Admissibility" class="definition h0 c7">We say that \(\alpha\) is admissible if for all \(\alpha\)-computable function \(f:\beta<\alpha\to\alpha\), we have \(\lim_{\gamma<\beta} f(\gamma)<\alpha\)</div>
 				<span></span>
 				<!-- <ul><li>Temps Fixé</li><li>Historique complet</li><li>Mauvaise relativisation</li></ul> -->
 			    </div>
@@ -875,16 +875,16 @@
 			<div class="slide permanent no-flex" id="weihrauch-intro"  pos-x="5" pos-y="2.35" scale="1" rotate="0" delay="1">
 			    <div class="slide-body-container">
 				<h1>Reverse Math : A step toward computability</h1>
-				Proof program duality has its limits:
+				Proof-program duality has its limits:
 				<ul>
 				    <li>Non-uniformity is possible in a proof</li>
 				    <li>Some notions depends on the model</li>
-				    <li>A proof is not sensitive to the resources</li>
+				    <li>A proof is not sensitive to the ressources</li>
 				</ul>
 				<div class="block h0 c1" title="Point of view">
 				    We see theorems of the form \(\forall x\in X,\ \exists y\in Y,\ \phi(x,y)\) as problems, with \(x\) being an instance, and \(y\) a solution.
 				</div>
-				<div class="example h0 c1">
+				<div title="Intermediate Value Theorem" class="example h0 c1">
 				    <span style="text-weight:bold">Instance :</span> \(f\) continuous with \(f(0)\lt 0\) and \(f(1)\gt 0\).
 				    <span style="text-weight:bold">Solution :</span> \(x\) such that \(f(x)=0\)
 				</div>
@@ -955,7 +955,7 @@
 					$${\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb 2}}\leq_{\mathrm W} {\Sigma^1_1\text{-}\mathrm{DC}_{\mathbb 2}}$$
 				    </div>
 				    <div style="display: none" class="block question-ac-vs-dc-n" title="Question">
-					Do we also have \({\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb 2}}\leq_{\mathrm W} {\Sigma^1_1\text{-}\mathrm{DC}_{\mathbb 2}}\)?
+					Do we also have \({\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb N}}\leq_{\mathrm W} {\Sigma^1_1\text{-}\mathrm{DC}_{\mathbb N}}\)?
 				    </div>
 				    <div class="custom-canvas">
 					<div style="font-size:40px;" class="enumeration">Co-enumerations in time \(\omega_1^{\mathrm{CK}}\)</div>
