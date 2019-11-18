@@ -358,19 +358,19 @@
 					 <div class="number-container clone"></div>
 					 <div class="number-container clone"></div> -->
 				</div>
-				<div class="fm-def definition" title="Full-match, Towsner">A full-match for a coloring \(c\) is a couple \((F,S)\) where \(F\) is a finite set, and for every finite sum \(x\) of elements of \(S\), there exists \(a\in F\) such that \(c(a)=c(x)=c(a+x)\).</div>
+				<div class="fm-def definition" title="Full-match, Towsner (2011)">A full-match for a coloring \(c\) is a couple \((F,S)\) where \(F\) is a finite set, and for every finite sum \(x\) of elements of \(S\), there exists \(a\in F\) such that \(c(a)=c(x)=c(a+x)\).</div>
 				<canvas class="tree-canvas" width="1200" height="500"></canvas>
 				<div class="block conclusion" title="Conclusion">The complexity of a full-match is essential to understand the complexity of a solution to Hindman's theorem!</div>
 				<div class="block" title="Question">Is it true that for every computable coloring, there exists a computable full-match?</div>
 				<ul class="c7 h0">
 				    <li>An affirmative answer would prove Hindman's theorem equivalent to \(\mathrm{ACA}_0\)</li>
-				    <li>A negative answer to the question was published, but there was an error in the proof.</li>
+				    <li>A negative answer to the question was published in 2011, but there was an error in the proof.</li>
 				</ul>
-				<div class="c8 h0 my-theorem" title="Monin, Patey, A.d'A.">Every computable coloring in two colors admits a computable left-match.</div>
+				<div class="c8 h0 my-theorem" title="Monin, Patey, A.d'A. (2019)">Every computable coloring in two colors admits a computable left-match.</div>
 				<div class="c9 h0">
 				    Consider the following property:
 				    $$\exists F\subseteq C_i, \forall x\in\mathrm{FS}(S),\ \exists a\in F,\ c(a+x) = j\tag{\(\mathrm{MM}_{i,j}\)}$$
-				    <div class="my-theorem" title="Monin, Patey, A.d'A.">Every coloring in two colors satisfying one of the following properties:
+				    <div class="my-theorem" title="Monin, Patey, A.d'A. (2019)">Every coloring in two colors satisfying one of the following properties:
 					<ul>
 					    <li>\(\lnot(\mathrm{MM}_{0,1})\) or \(\lnot(\mathrm{MM}_{1,0})\)</li>
 					    <!-- <li></li> -->
@@ -488,13 +488,13 @@
 				<div class="h0 v1">
 				    <canvas width="1200" height="800" class="canvas-ittm"></canvas>
 				    <canvas style="display:block" class="ordinalCanvas" width="5000" height="150" style="position:absolute;top: 300px;left:auto; right:auto; transition: left 1s, transform 1s, right 1s, bottom 1s, top 1s"></canvas>
-				    <div title="Hamkins, Kidder" class="definition ittm-defi">An <span class="emphasize">Infinite Time Turing Machine</span> (ITTM) is a Turing Machine <span class="emphasize">with three tapes (input, work and output)</span> with a special state (called limit state). An infinite time computation is a sequence of configurations, indexed by an ordinal, such that:
+				    <div title="Hamkins, Kidder, Lewis (1998)" class="definition ittm-defi">An <span class="emphasize">Infinite Time Turing Machine</span> (ITTM) is a Turing Machine <span class="emphasize">with three tapes (input, work and output)</span> with a special state (called limit state). An infinite time computation is a sequence of configurations, indexed by an ordinal, such that:
 					<ul>
 					    <li> At <span class="emphasize">successor steps</span>, the rules are <span class="emphasize">the same</span> as for a regular Turing machine,</li>
 					    <li> At <span class="emphasize">limit steps</span> : <ul><li>The state is the <span class="emphasize">limit state</span></li><li>The head of the tapes is at the <span class="emphasize">leftmost position</span></li><li>Each cell of the memory tape is the <span class="emphasize">\(\limsup\)</span> of its previous values: $$T_\lambda(n)=\limsup_{\alpha<\lambda}T_\alpha(n)$$</li></ul></li>
 					</ul>
 				    </div>
-				    <div class="definition three-levels" title="Three level of ITTM computation">
+				    <div class="definition three-levels" title="Three levels of ITTM computation">
 					A real \(x\) is:
 					<ul>
 					    <li><span class="lambda">Writable</span> if at some step, the machine has \(x\) written on its output tape and <span class="lambda">halts</span>,</li>
@@ -502,7 +502,7 @@
 					    <li><span class="Sigma">Accidentally writable</span> if at some step, the machine has \(x\) written on its output tape.</li>
 					</ul>
 				    </div>
-				    <div title="Welch" class="h0 theorem lambda-zeta-sigma">Let <span class="lambda">\(\lambda\)</span>, <span class="zeta">\(\zeta\)</span> and <span class="Sigma">\(\Sigma\)</span> the lexicographically least triplet of ordinals such that:
+				    <div title="Welch (2000)" class="h0 theorem lambda-zeta-sigma">Let <span class="lambda">\(\lambda\)</span>, <span class="zeta">\(\zeta\)</span> and <span class="Sigma">\(\Sigma\)</span> the lexicographically least triplet of ordinals such that:
 					$$ L_{\color{red}\lambda}\prec_1 L_{\color{blue}\zeta} \prec_2 L_{\color{green}\Sigma}$$
 					Then:
 					<ul>
@@ -511,7 +511,7 @@
 					    <li><span class="Sigma">\(\Sigma\)</span> is the supremum of the <span class="Sigma">loopless times</span>, and of the <span class="Sigma">accidentally writable ordinals</span> by an ITTM</li>
 					</ul>
 				    </div>
-				    <div title="Welch" class="theorem lambda-zeta-sigma-2" style="display:none">Let <span class="lambda">\(\lambda^x\)</span>, <span class="zeta">\(\zeta^x\)</span> and <span class="Sigma">\(\Sigma^x\)</span> be the lexicographically least triplet of ordinals such that:
+				    <div title="Welch (2000)" class="theorem lambda-zeta-sigma-2" style="display:none">Let <span class="lambda">\(\lambda^x\)</span>, <span class="zeta">\(\zeta^x\)</span> and <span class="Sigma">\(\Sigma^x\)</span> be the lexicographically least triplet of ordinals such that:
 					$$ L_{\color{red}\lambda^x}[x]\prec_1 L_{\color{blue}\zeta^x}[x] \prec_2 L_{\color{green}\Sigma^x}[x]$$
 					Then:
 					<ul>
@@ -542,14 +542,14 @@
 			<div class="slide permanent no-flex" id="higher-def" pos-x="2" pos-y="3.6" scale="0.33" rotate="0" delay="1" style="">
 			    <div class="slide-body-container">
 				<h1 style="text-align:center">Higher Computability</h1>
-				<div class="definition h0 c1">
+				<div class="definition h0 c1" title="Souslin, Luzin (1917)">
 				    <ul>
 					<li>A set \(A\subseteq\mathbb N\) is \(\Sigma^1_1\) if it is definable by a formula of the form $$\exists X\in \mathcal P(\mathbb N),\ \psi(X,x)$$ where \(\psi(X,x)\) is arithmetic.</li>
 					<li>A set \(A\subseteq\mathbb N\) is \(\Pi^1_1\) if its complementary is \(\Sigma^1_1\).</li>
 					<li>A set \(A\subseteq\mathbb N\) is \(\Delta^1_1\) if it is both \(\Sigma^1_1\) and \(\Pi^1_1\).</li>
 				    </ul>
 				</div>
-				<div title="Sacks" class="definition h0 c2">
+				<div title="Sacks (60's)" class="definition h0 c2">
 				    A set \(A\subseteq\mathbb N\) is
 				    <ul>
 					<li><span class="">higher computable</span> <span style="display:none" class="relativement emphasize">relatively to \(x\)</span> if it is <span class="non-relativement">\(\Delta^1_1\)</span><span style="display:none" class="relativement emphasize">\(\Delta^1_1(x)\)</span>.</li>
@@ -602,11 +602,11 @@
 				     <p>
 				     Donc pour les étapes limites, on va utiliser une formule plutôt qu'une machine.
 				     </p> -->
-				<div class="definition c3 h0" title="Gödel's constructible">
+				<div class="definition c3 h0" title="Gödel's constructible (30's)">
 				    Let us define <!-- les constructibles de Gödel --> \((L_\alpha)_{\alpha\in\mathrm{Ord}}\) the following way:
 				    <ul><li>\(L_0 = \emptyset\)</li><li>\(L_{\alpha+1} = \{ A\subseteq L_\alpha : \) \(A\) is definable in \(L_\alpha\}\)</li><li>\(L_\lambda = \bigcup_{\alpha<\lambda}L_\alpha\)</li></ul>
 				</div>
-				<div class="definition c4 h0" title="α-computability, Sacks">
+				<div class="definition c4 h0" title="α-computability, Sacks (60's)">
 				    We say that \(A\subseteq\mathbb N\) is
 				    <ul>
 					<li>\(\alpha\)-computable if \(A\) is \(\Delta_1\)-definable in \(L_\alpha\),</li>
@@ -742,7 +742,7 @@
 				<div class="h0 cm2">
 				    <h1>Higher order randomness</h1>
 				    Higher order randomness is already developed. It adapts classical randomness notions, using the analogy between \(\Pi^1_1\) and computably enumerable:
-				    <div class="definition" title="Hjorth, Nies">
+				    <div class="definition" title="Hjorth, Nies (2007)">
 					A real \(x\) is \(\Pi^1_1\)-ML-random if it belongs to no set \(A\) of the form $$A=\bigcap_n{[W_n]^\prec}$$ where the sets \(W_n\) are <span class="simple">uniformly \(\Pi^1_1\)</span> and <span class="discriminante">\(\mu([W_n])\leq{2^{-n}}\)</span>.
 				    </div>
 				</div>
@@ -756,8 +756,8 @@
 				    </div>
 				</div>
 				<div class="h0 c2">
-				    <div class="theorem movable higher-theorem" title="Chong, Yu, Nies">A real is \(\Pi^1_1\)-random if and only if it is \(\Delta^1_1\)-random and \(\omega_1^{\mathrm{CK}}=\omega_1^{\mathrm{CK(x)}}\)</div>
-				    <div class="theorem movable inclusions" title="Chong, Yu, Nies">We have the following strict inclusion:
+				    <div class="theorem movable higher-theorem" title="Chong, Yu, Nies (2008)">A real is \(\Pi^1_1\)-random if and only if it is \(\Delta^1_1\)-random and \(\omega_1^{\mathrm{CK}}=\omega_1^{\mathrm{CK(x)}}\)</div>
+				    <div class="theorem movable inclusions" title="Chong, Yu, Nies (2008)">We have the following strict inclusion:
 					$$\Delta^1_1\text{-randomness}\subsetneq\Pi^1_1\text{-ML-randomness}\subsetneq\Pi^1_1\text{-randomness}$$
 				    </div>
 				</div>
@@ -793,7 +793,7 @@
 					$$\text{randomness over }L_\Sigma\subsetneq\text{ITTM-ML-randomness}\subsetneq\text{ITTM-randomness}\text{ ?}$$
 				    </div>
 				</div>
-				<div title="Monin, A.d'A." class="my-theorem h0 c8">Let \(\alpha\) be such that \(L_\alpha\models\text{"everything is countable"}\). Then the following statements are equivalent:
+				<div title="Monin, A.d'A. (2017)" class="my-theorem h0 c8">Let \(\alpha\) be such that \(L_\alpha\models\text{"everything is countable"}\). Then the following statements are equivalent:
 				    <ul>
 					<li>\(\alpha\)-ML-randomness is strictly stronger than randomness over \(L_\alpha\).</li>
 					<li>\(\alpha\) is projectible in \(\omega\).</li>
@@ -818,7 +818,7 @@
 				    $$\text{Randomness over }L_\Sigma\neq\text{ITTM-randomness ?}$$
 				    Does \(x\) random over \(L_\Sigma\) implies $$L_\zeta[x]\not\prec_2L_\Sigma[x]\text{ ?}$$
 				</div>
-				<div class="my-theorem h0 c13" title="Monin, A.d'A.">
+				<div class="my-theorem h0 c13" title="Monin, A.d'A. (2017)">
 				    If \(x\) is generic over \(L_\Sigma\) then $$L_\zeta[x]\prec_2L_\Sigma[x].$$
 				    We therefore have:
 				    $$\text{Genericity over }L_\Sigma = \text{ITTM-genericity}$$
@@ -1000,11 +1000,11 @@
 				    <!-- <div class="custom-canvas-2 custom-canvas h0">
 					 <div style="font-size:40px;" class="aj">\(A_i=\{\)</div>
 					 </div> -->
-				    <div class="h0 my-theorem th-1" title="Kihara, A. d'A.">
+				    <div class="h0 my-theorem th-1" title="Kihara, A. d'A. (2018)">
 					$${\Sigma^1_1\text{-}\mathrm{DC}_{\mathbb N}}\not\leq_{\mathrm W}\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb N}$$
 					$$\mathrm{ATR}\not\leq_{\mathrm W}\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb N}$$
 				    </div>
-				    <div class="h0 my-theorem th-2" title="Kihara, A. d'A.">
+				    <div class="h0 my-theorem th-2" title="Kihara, A. d'A. (2018)">
 					<div style="text-align: center">
 					    <img style="width:70%; padding:50px" src="hierarchyChoice4.svg"/>
 					</div>
