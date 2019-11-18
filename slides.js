@@ -751,7 +751,7 @@ let hindmanItself = new Slide("hindman-itself", (slide, engine, presentation) =>
 	slide.query(".forall").classList.add("emphasize");
 	slide.query(".cloneclone").style.visibility = "hidden";
 	slide.queryAll(".cloneclone .number").forEach((elem) => {elem.style.visibility = "hidden";});
-	slide.query(".list-color").innerHTML = "en <span style=\"color:red\">red</span>, <span style=\"color:blue\">blue</span> and <span style=\"color:darkgreen\">green</span>";
+	slide.query(".list-color").innerHTML = "in <span style=\"color:red\">red</span>, <span style=\"color:blue\">blue</span> and <span style=\"color:darkgreen\">green</span>";
 	slide.query(".myexample").innerText = "Coloring examples";
 	slide.query(".sigma-container").style.visibility="hidden";
 	let newColoring = () => {
@@ -1089,7 +1089,7 @@ let randomnessIntro = new Slide("randomness-intro", (slide, engine, presentation
 	// slide.query(".discriminante").innerText = "way to describe it";
 	// slide.query(".et").style.display = "none";
 	// slide.query(".simple").innerText = "in few words";
-	slide.query(".resolution").innerHTML = '<span class="article">A</span> <span class="objet">sequence of letters</span> is random <span class="condition">if</span> it doesn\'t have any <span class="discriminante">way to describe it</span> <span class="et"></span> <span class="simple">in few words</span>.';
+	slide.query(".resolution").innerHTML = '<span class="article">A</span> <span class="objet">sequence of letters</span> is random <span class="condition">if</span> there is no <span class="discriminante">way to describe it</span> <span class="et"></span> <span class="simple">in few words</span>.';
 	
     }, (slide, engine, presentation) => {
 	// slide.query(".et").style.display = "inline-block";
@@ -1098,7 +1098,7 @@ let randomnessIntro = new Slide("randomness-intro", (slide, engine, presentation
 	// slide.query(".objet").innerText = "real";
 	// slide.query(".discriminante").innerText = "of measure 0";
 	// slide.query(".simple").innerText = "with simple logical complexity";
-	slide.query(".resolution").innerHTML = '<span class="article">A</span> <span class="objet">real</span> is random <span class="condition">if</span> it doesn\'t have any <span class="discriminante">measure 0</span> <span class="et">and</span> <span class="simple">logically simple</span> property.';
+	slide.query(".resolution").innerHTML = '<span class="article">A</span> <span class="objet">real</span> is random <span class="condition">if</span> it has no <span class="simple">logically simple</span> property of <span class="discriminante">measure 0</span>.';
     }, (slide, engine, presentation) => {
 	engine.moveWindowRelative(0,0.65,0,0,1);
 	slide.query(".c3").style.opacity = "1";
@@ -1111,13 +1111,23 @@ let randomnessIntro = new Slide("randomness-intro", (slide, engine, presentation
 
 let reverseMathIntro = new Slide("reverse-math-intro", (slide, engine, presentation) => {}, [
     (slide, engine, presentation) => {
-	
+	// v0
+    }, (slide, engine, presentation) => {
+	// v1
+    }, (slide, engine, presentation) => {
+	// v2
+	let def = slide.query(".v3.definition");
+	this.d1 = (def.offsetTop + def.offsetHeight)/1080 -1+ 0.01;
+	engine.moveWindowRelative(0,this.d1,0,0,1);
     }, (slide, engine, presentation) => {	
+	let title = slide.query(".v3");
+	this.d2 = (title.offsetTop)/1080 - 0.01 - this.d1;
+	engine.moveWindowRelative(0,this.d2,0,0,1);
     }, (slide, engine, presentation) => {	
-    }, (slide, engine, presentation) => {	
-	engine.moveWindowRelative(0,0.7,0,0,1);
-    }, (slide, engine, presentation) => {	
-	engine.moveWindowRelative(0,0.175,0,0,1);
+	let duality = slide.query(".v5");
+	this.d3 = (duality.offsetTop+duality.offsetHeight)/1080 -1 + 0.01 - this.d1 -this.d2;
+	engine.moveWindowRelative(0,this.d3,0,0,1);
+	// engine.moveWindowRelative(0,0.175,0,0,1);
     }], engine, () => {});
 
 let weihrauchIntro = new Slide("weihrauch-intro", (slide, engine, presentation) => {
@@ -1687,10 +1697,16 @@ let weihrauchIntro = new Slide("weihrauch-intro", (slide, engine, presentation) 
 	engine.moveWindowRelative(-1.5,-0.95,0,0,1);	    
 	setTimeout(() => {
 	    engine.moveWindowRelative(0,0,7,0,3);
+	    setTimeout(() => {
+		document.querySelector("#thanks").classList.add("placed");
+		document.querySelector("#fo").classList.add("placed");
+	    }, 3000);
 	}, 500);
     }], engine, (slide, engine, presentation) => {
 	engine.moveWindowRelative(0,-0.3,0,0,1);
+	slide.queryAll(".v0").forEach((elem) => { elem.style.opacity = "1";});
 	document.querySelector("#thanks").style.visibility = "visible";
+	document.querySelector("#fo").style.visibility = "visible";
     });
 
 
@@ -1773,6 +1789,17 @@ let randomnessITTM = new Slide("randomness-ittm", (slide, engine, presentation) 
 let beamerTitle = new Slide("beamer-title", (slide, engine, presentation) => {}, [], engine, () => {});
 let endSlide = new Slide("fin", (slide, engine, presentation) => {}, [], engine, () => {});
 
+let tempsInfini3 = new Slide("temps-infini-2", (slide, engine, presentation) => {
+    slide.query(".slide-container").style.display ="block";
+}, [(slide, engine, presentation) => {
+    engine.moveWindowRelative(0,0.55,0,0,1);
+    slide.query(".c1").style.opacity = "1";
+    slide.element.style.zIndex=10;
+// }, (slide, engine, presentation) => {
+    
+}], engine, (slide, engine, presentation) => {});
+
+
 let presentation = new Presentation([
     beamerTitle,
     title,
@@ -1785,7 +1812,7 @@ let presentation = new Presentation([
     alphaRecDef,
     higherDef,
     ittmsDef,
-    tempsInfini2,
+    tempsInfini3,
     // lienDef,
     randomnessIntro,
     randomnessITTM,

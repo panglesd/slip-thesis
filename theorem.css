@@ -2,7 +2,7 @@
 /*    Blocks                         */
 /*************************************/
 
-.block, .theorem, .lemma, .definition, .example {
+.block, .theorem, .lemma, .definition, .example, .my-theorem {
     display: block;
     margin-top: 20px;
     margin-bottom: 40px;
@@ -12,7 +12,7 @@
     box-shadow: 5px 5px 18px 5px rgba(0,0,0,0.42);
     
 }
-.block:before, .theorem:before, .lemma:before, .definition:before, .example:before {
+.block:before, .theorem:before, .lemma:before, .definition:before, .example:before, .my-theorem:before {
     font-weight: bold;
     display: block;
     margin-top: -30px;
@@ -24,7 +24,7 @@
     padding-left: 30px;
     color: white;
     font-style: normal;
-}
+}²
 .block[title]:before {
     content: "" attr(title) "";
     background-color: darkgrey;
@@ -46,6 +46,24 @@
     background-color: darkred;
 }
 .theorem[title]:before {
+    content: "Theorem (" attr(title) ") ";
+}
+
+/*************************************/
+/*    Theorems                       */
+/*************************************/
+
+.my-theorem {
+    font-style: italic;
+    background-color: lightgoldenrodyellow;
+    border: 1px solid darkgoldenrod;
+}
+.my-theorem:before {
+    text-align:left;
+    content: "Theorem";
+    background-color: darkgoldenrod;
+}
+.my-theorem[title]:before {
     content: "Theorem (" attr(title) ") ";
 }
 

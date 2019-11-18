@@ -569,15 +569,23 @@ h1 {
     width:100%;
 }
 #thanks {
+    transition: top 4s;
     background-color:white;
     position:relative;
     font-size:800px;
-    top:6790px;
+    /* top:6790px; */
+    top: 8000px;
     left: 379px;
     z-index: 100000;
     width: 10000px;
+    padding: 255px;
+    padding-left:0;
+    background-color:rgb(255,255,255, 0.8);
 }
-#infinite {
+#thanks.placed {
+    top: 3500px;
+}
+    #infinite {
     transform:scale(30);
     z-index:100;
     position: absolute;
@@ -651,4 +659,16 @@ h1 {
     font-size: 40px;
     top:35px;
     left:0;
+}
+#fo {
+    position:absolute;
+    transform:scale(14);
+    transform-origin: 0 0;
+    z-index:10;
+    background-color:rgb(255,255,255, 0.8);
+    top: 9000px;
+    transition: top 4s;
+}
+#fo.placed {
+    top:5500px;
 }

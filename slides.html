@@ -212,7 +212,7 @@
 			    <div class="titre">Hindman's Theorem</div>
 			    <div class="slide-body-container">
 				<div class="theorem" title="Hindman">
-				    <span class="forall">For all</span> <span class="color-word">coloring of the integers</span> in a finite number of colors, <span class="hach"><span class="exists">there exists</span> an infinite set</span> \(H\subseteq\mathbb N\) such that  <span class="sommes">the set of finite sums of elements from \(H\) is monochromatic</span>.
+				    <span class="forall">For every</span> <span class="color-word">coloring of the integers</span> in a finite number of colors, <span class="hach"><span class="exists">there exists</span> an infinite set</span> \(H\subseteq\mathbb N\) such that  <span class="sommes">the set of finite sums of elements from \(H\) is monochromatic</span>.
 				</div>
 				<div class="coloring" style="visibility:hidden">
 				    <span class="myexample">Example of coloring</span> of the integers <span class="list-color"></span> :
@@ -271,7 +271,7 @@
 					<span class="infinity">...</span>
 				    </div>
 
-				    <div class="sigma-container" style="position: absolute; left: auto; right:auto; bottom: 10%; opacity: 0; transition: opacity 1s, left 1s">Couleur de la somme : <span class="sigma" ></span>\(=\) <span class="sigma-value" ></span></div>
+				    <div class="sigma-container" style="position: absolute; left: auto; right:auto; bottom: 10%; opacity: 0; transition: opacity 1s, left 1s">Color of the sum: <span class="sigma" ></span>\(=\) <span class="sigma-value" ></span></div>
 				    <div class="number-container cloneclone" style="position:relative;visibility:hidden; margin-top: 30px; text-align:center;">
 					<span class="number n0" style="visibility:hidden">0</span>
 					<span class="number n1" style="visibility:hidden">1</span>
@@ -317,13 +317,13 @@
 				<div class="theorem h0 c2" title="Lower bound, Blass, Hirst, Simpson">
 				    <ul>
 					<li>Hindman's theorem prove \(\mathrm{ACA}_0\).</li>
-					<li>There exists a computable finite coloring such that all homogeneous set \(H\) computes \(\emptyset'\).</li>
+					<li>There exists a computable finite coloring such that all homogeneous sets \(H\) compute \(\emptyset'\).</li>
 				    </ul>
 				</div>
 				<div class="block h0 c3" title="Question">
 				    <ul>
 					<li>Is Hindman's theorem equivalent to \(\mathrm{ACA}_0\)? Or to \(\mathrm{ACA}_0^+\)? Or strictly in between?</li>
-					<li>Given a computable finite coloring, does there always exists an arithmetical solution? Or does there exists a finite computable coloring such that all homogeneous set computes \(\emptyset^{(\omega)}\) ?</li>
+					<li>Given a computable finite coloring, does there always exists an arithmetical solution? Or does there exists a finite computable coloring such that all homogeneous sets compute \(\emptyset^{(\omega)}\) ?</li>
 				    </ul>
 				</div>
 			    </div>
@@ -347,7 +347,7 @@
 				</div>
 				<input style="position:absolute; top: 10px; right: 10px" class="refresh" type="button" value="Refresh"/>
 				<h2> Effectivizing the proof </h2>
-				The problem is that the \(n\) found in (2) is chosen in a very non uniform way between a finite number of possible candidate.
+				The problem is that the \(n\) found in (2) is chosen in a very non uniform way between a finite number of possible candidates.
 				<div class="block h0 c6" title="Uniformly">
 				    <!-- $$A\text{ large }\Longrightarrow \exists n_0,\cdots, n_N\in A, \exists i\lt N, A\cap A+n_i\text{ est large. }\label{lab2}$$ -->
 				    $$A\text{ large }\Longrightarrow \exists {\color{maroon}n_0,\cdots, n_N}\in A, \bigcup_{i\lt N}A\cap A+{\color{maroon}n_i}\text{ est large. }$$
@@ -361,16 +361,16 @@
 				<div class="fm-def definition" title="Full-match, Towsner">A full-match for a coloring \(c\) is a couple \((F,S)\) where \(F\) is a finite set, and for every finite sum \(x\) of elements of \(S\), there exists \(a\in F\) such that \(c(a)=c(x)=c(a+x)\).</div>
 				<canvas class="tree-canvas" width="1200" height="500"></canvas>
 				<div class="block conclusion" title="Conclusion">The complexity of a full-match is essential to understand the complexity of a solution to Hindman's theorem!</div>
-				<div class="block" title="Question">Do we have that for every computable coloring, there exists a computable full-match?</div>
+				<div class="block" title="Question">Is it true that for every computable coloring, there exists a computable full-match?</div>
 				<ul class="c7 h0">
 				    <li>An affirmative answer would prove Hindman's theorem equivalent to \(\mathrm{ACA}_0\)</li>
 				    <li>A negative answer to the question was published, but there was an error in the proof.</li>
 				</ul>
-				<div class="c8 h0 theorem" title="Monin, Patey, A.d'A.">Every computable coloring in two colors admits a computable left-match.</div>
+				<div class="c8 h0 my-theorem" title="Monin, Patey, A.d'A.">Every computable coloring in two colors admits a computable left-match.</div>
 				<div class="c9 h0">
 				    Consider the following property:
 				    $$\exists F\subseteq C_i, \forall x\in\mathrm{FS}(S),\ \exists a\in F,\ c(a+x) = j\tag{\(\mathrm{MM}_{i,j}\)}$$
-				    <div class="theorem" title="Monin, Patey, A.d'A.">Every coloring in two colors satisfying one of the following properties:
+				    <div class="my-theorem" title="Monin, Patey, A.d'A.">Every coloring in two colors satisfying one of the following properties:
 					<ul>
 					    <li>\(\lnot(\mathrm{MM}_{0,1})\) or \(\lnot(\mathrm{MM}_{1,0})\)</li>
 					    <!-- <li></li> -->
@@ -466,7 +466,19 @@
 			    <!-- <div class="titre">Trois types de calculs en temps infini</div> -->
 			    <div class="slide-body-container">
 				<h1 style="text-align:center">Three types of infinite time computations</h1>
-
+				<div style="height:1140px;"></div>
+				<div class="block h0 c1" title="Conclusion">
+				    <ul>
+					<li>We defined several notions of infinite computations:
+					    <ul>
+						<li>Of length \(\omega_1^{\mathrm{CK}}<\lambda<\zeta<\Sigma\) or any \(\alpha\) admissible</li>
+						<li>They relativizes, except for \(\alpha\) computable</li>
+						<!-- <li>ITTM computation, for computations bounded in time \(\omega_1^{\mathrm{CK}}\)</li> -->
+					    </ul>
+					</li>
+					<li>These notions yields <span class="emphasize">new complexity notions</span> on sets, <span class="emphasize">much higher</span> the usual one, but with a <span class="emphasize">similar behaviour</span>!</li>
+				    </ul>
+				</div>
 			    </div>
 			</div>
 
@@ -482,16 +494,12 @@
 					    <li> At <span class="emphasize">limit steps</span> : <ul><li>The state is the <span class="emphasize">limit state</span></li><li>The head of the tapes is at the <span class="emphasize">leftmost position</span></li><li>Each cell of the memory tape is the <span class="emphasize">\(\limsup\)</span> of its previous values: $$T_\lambda(n)=\limsup_{\alpha<\lambda}T_\alpha(n)$$</li></ul></li>
 					</ul>
 				    </div>
-				    <div class="definition three-levels">
+				    <div class="definition three-levels" title="Three level of ITTM computation">
+					A real \(x\) is:
 					<ul>
-					    <li>
-						Three levels of computation for a real \(x\) :
-						<ul>
-						    <li><span class="lambda">Writable</span>: At some step, the machine has \(x\) written on its output tape and <span class="lambda">halts</span>.</li>
-						    <li><span class="zeta">Eventually writable</span>: At some step, the machine has \(x\) written on its output tape and <span class="zeta">never modifies it afterward</span>.</li>
-						    <li><span class="Sigma">Accidentally writable</span>: At some step, the machine has \(x\) written on its output tape.</li>
-						</ul>
-					    </li>
+					    <li><span class="lambda">Writable</span> if at some step, the machine has \(x\) written on its output tape and <span class="lambda">halts</span>,</li>
+					    <li><span class="zeta">Eventually writable</span> if at some step, the machine has \(x\) written on its output tape and <span class="zeta">never modifies it afterward</span>,</li>
+					    <li><span class="Sigma">Accidentally writable</span> if at some step, the machine has \(x\) written on its output tape.</li>
 					</ul>
 				    </div>
 				    <div title="Welch" class="h0 theorem lambda-zeta-sigma">Let <span class="lambda">\(\lambda\)</span>, <span class="zeta">\(\zeta\)</span> and <span class="Sigma">\(\Sigma\)</span> the lexicographically least triplet of ordinals such that:
@@ -718,10 +726,10 @@
 				    Measure Theory doesn't answer this paradox. <span class="emphasize">Algorithmic randomness does!</span>
 				    <div class="block resolution" title="Resolution"><span class="article">An</span> <span class="objet">object</span> is random <span class="condition">if</span> it doesn't have any <span class="discriminante">discriminatory</span> <span class="et">and</span> <span class="simple">simple</span> property.</div>
 				</div>
-				<div class="definition h0 c3" title="weak-n-randomness">A real \(x\in {2^{\mathbb N}}\) is weak-\(n\)-random if it avoids all <span class="simple">\(\Pi^0_n\)</span> and of <span class="discriminante">measure 0</span> properties.</div>
+				<div class="definition h0 c3" title="weak-n-randomness">A real \(x\in {2^{\mathbb N}}\) is weak-\(n\)-random if it has no <span class="simple">\(\Pi^0_n\)</span> property of <span class="discriminante">measure 0</span>.</div>
 				<div class="definition h0 c4" title="Martin-Lof randomness">A ML-test is a <span class="simple">\(\Pi^0_2\)</span> set \(A\), such that \(A\) is of the form $$\bigcap_{n\in\mathbb N} U_n$$ where <span class="discriminante">\(\forall n,\ \mu(U_n)\leq {2^{-n}}\)</span>. A real \(x\in{2^{\mathbb N}}\) is ML-random if it avoids all ML-tests.</div>
 				<ul class="h0 c5">
-				    <li>Each <span class="simple">complexity layer</span> induces a randomness notion. We do not define what random real is, but a <span class="emphasize">hierarchy</span> of the reals to what extent they are random.</li>
+				    <li>Each <span class="simple">complexity layer</span> induces a randomness notion. We do not define what random real is, but a <span class="emphasize">hierarchy</span> on the reals corresponding to what extent they are random.</li>
 				    <li>Each level has its weaknesses :
 					<ul><li>Some reals <!-- (comme \(\Omega\), la probabilité d'arrêt d'une machine de Turing) --> are strangely ML-random</li><li>For all \(n\), there exists an arithmetic weak-\(n\)-random real. <!-- Commet un réel aléatoire pourrait être définit par une simple formule arithmétique ? --></li><li><span class="emphasize">This suggests the study of strong randomness notions.</span></li></ul></li>
 				</ul>
@@ -785,7 +793,7 @@
 					$$\text{randomness over }L_\Sigma\subsetneq\text{ITTM-ML-randomness}\subsetneq\text{ITTM-randomness}\text{ ?}$$
 				    </div>
 				</div>
-				<div title="Monin, A.d'A." class="theorem h0 c8">Let \(\alpha\) be such that \(L_\alpha\models\text{"everything is countable"}\). Then the following statements are equivalent:
+				<div title="Monin, A.d'A." class="my-theorem h0 c8">Let \(\alpha\) be such that \(L_\alpha\models\text{"everything is countable"}\). Then the following statements are equivalent:
 				    <ul>
 					<li>\(\alpha\)-ML-randomness is strictly stronger than randomness over \(L_\alpha\).</li>
 					<li>\(\alpha\) is projectible in \(\omega\).</li>
@@ -810,7 +818,7 @@
 				    $$\text{Randomness over }L_\Sigma\neq\text{ITTM-randomness ?}$$
 				    Does \(x\) random over \(L_\Sigma\) implies $$L_\zeta[x]\not\prec_2L_\Sigma[x]\text{ ?}$$
 				</div>
-				<div class="theorem h0 c13" title="Monin, A.d'A.">
+				<div class="my-theorem h0 c13" title="Monin, A.d'A.">
 				    If \(x\) is generic over \(L_\Sigma\) then $$L_\zeta[x]\prec_2L_\Sigma[x].$$
 				    We therefore have:
 				    $$\text{Genericity over }L_\Sigma = \text{ITTM-genericity}$$
@@ -839,15 +847,15 @@
 					    <li>\(\Pi^1_1\text{-}\mathrm{CA}_0\), analytic comprehension.</li>
 					</ul>
 				    </li>
-				    <li class="h0 v2">Second discovery: lots of theorems from Ramsey Theory avoids this structure.</li>
+				    <li class="h0 v2">Second discovery: lots of theorems from Ramsey Theory avoid this structure.</li>
 				</ul>
-				<div class="h0 v3 definition">Two theorems \(T_0\) and \(T_1\) are said <span class="emphasize">equivalent</span> if:
+				<h2 class="h0 v3">Using computability in reverse mathematics</h2>
+				<div class="h0 v3 definition">Two theorems \(T_0\) and \(T_1\) are said <span class="emphasize">equivalent over \(\mathrm{RCA}_0\)</span> if:
 				    <ul><li>Taking \(T_0\) and \(\mathrm{RCA}_0\) as axioms, we can prove \(T_1\)</li>
 					<li>Taking \(T_1\) and \(\mathrm{RCA}_0\) as axioms, we can prove \(T_0\)</li></ul>
 				</div>
-				<h2>Using computability in reverse mathematics</h2>
-				The natural axioms in mathematics are existence axioms. To the use of an axiom corresponds a computable complexity. <!-- Les axiomes naturels en mathématiques sont des axiomes d'existence. À l'utilisation d'un axiome correspond une complexité calculatoire. -->
-				<div style="display: flex;" class="table-container">
+				<span  class="h0 v1">The natural axioms in mathematics are existence axioms. To the use of an axiom corresponds a computable complexity. <!-- Les axiomes naturels en mathématiques sont des axiomes d'existence. À l'utilisation d'un axiome correspond une complexité calculatoire. --></span>
+				<div style="display: flex;" class="table-container h0 v1">
 				    <div style="flex-grow: 1" class="left-column column">
 					<div class="cell header">Axiom</div>
 					<div class="cell">\(\mathrm{RCA}_0\)</div>
@@ -875,11 +883,11 @@
 			</div>
 			<div class="slide permanent no-flex" id="weihrauch-intro"  pos-x="5" pos-y="2.35" scale="1" rotate="0" delay="1">
 			    <div class="slide-body-container">
-				<h1>Reverse Math : A step toward computability</h1>
-				Proof-program duality has its limits:
-				<ul>
+				<h1 class="h0 v0">Reverse Math : A step toward computability</h1>
+				<span class="h0 v0">Proof-program duality has its limits:</span>
+				<ul class="h0 v0">
 				    <li>Non-uniformity is possible in a proof</li>
-				    <li>Some notions depends on the model</li>
+				    <li>Some notions depend on the model</li>
 				    <li>A proof is not sensitive to the ressources</li>
 				</ul>
 				<div class="block h0 c1" title="Point of view">
@@ -992,11 +1000,11 @@
 				    <!-- <div class="custom-canvas-2 custom-canvas h0">
 					 <div style="font-size:40px;" class="aj">\(A_i=\{\)</div>
 					 </div> -->
-				    <div class="h0 theorem th-1" title="Kihara, A. d'A.">
+				    <div class="h0 my-theorem th-1" title="Kihara, A. d'A.">
 					$${\Sigma^1_1\text{-}\mathrm{DC}_{\mathbb N}}\not\leq_{\mathrm W}\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb N}$$
 					$$\mathrm{ATR}\not\leq_{\mathrm W}\Sigma^1_1\text{-}\mathrm{AC}_{\mathbb N}$$
 				    </div>
-				    <div class="h0 theorem th-2" title="Kihara, A. d'A.">
+				    <div class="h0 my-theorem th-2" title="Kihara, A. d'A.">
 					<div style="text-align: center">
 					    <img style="width:70%; padding:50px" src="hierarchyChoice4.svg"/>
 					</div>
@@ -1026,6 +1034,13 @@
 			<div class="slide" id="fin" pos-x="3.5" pos-y="3.5" scale="8" rotate="0" delay="4">
 			</div>
 			<div style="visibility: hidden" id="thanks">Thank you for your attention!</div>
+			<div style="visibility: hidden" class="block" title="Future Work" id="fo">
+			    <ul>
+				<li>Reverse mathematics of Full-matches and Hindman's theorem, as well as dense Hindman Theorem.</li>
+				<li>ITTM-randomness versus randomness over \(L_\Sigma\).</li>
+				<li>\(\Sigma^1_1\text{-}\mathrm{DC}_{\mathbf N}\leq_{\mathrm{aW}}\Sigma^1_1\text{-}\mathrm{AC}_{\mathbf N}\)?</li>
+			    </ul>
+			</div>
 			<div style="" id="infinite">\(\infty\)</div>
 			<div style="" id="randomnessChapter"><img src="dice2.svg"/></div>
 			<div style="" id="RMChapter">Mathematics</div>
