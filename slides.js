@@ -1131,8 +1131,8 @@ let reverseMathIntro = new Slide("reverse-math-intro", (slide, engine, presentat
     }], engine, () => {});
 
 let weihrauchIntro = new Slide("weihrauch-intro", (slide, engine, presentation) => {
-    slide.query("#thanks").classList.remove("placed");
-    slide.query("#fo").classList.remove("placed");
+    document.querySelector("#thanks").classList.remove("placed");
+    document.querySelector("#fo").classList.remove("placed");
     let solQ = slide.query(".sol-Q");
     let solP = slide.query(".sol-P");
     let solF = slide.query(".sol-f");
