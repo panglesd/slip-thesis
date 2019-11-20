@@ -350,7 +350,7 @@
 				The problem is that the \(n\) found in (2) is chosen in a very non uniform way between a finite number of possible candidates.
 				<div class="block h0 c6" title="Uniformly">
 				    <!-- $$A\text{ large }\Longrightarrow \exists n_0,\cdots, n_N\in A, \exists i\lt N, A\cap A+n_i\text{ est large. }\label{lab2}$$ -->
-				    $$A\text{ large }\Longrightarrow \exists {\color{maroon}n_0,\cdots, n_N}\in A, \bigcup_{i\lt N}A\cap A+{\color{maroon}n_i}\text{ est large. }$$
+				    $$A\text{ large }\Longrightarrow \exists {\color{maroon}n_0,\cdots, n_N}\in A, \bigcup_{i\lt N}A\cap A+{\color{maroon}n_i}\text{ is large. }$$
 				</div>
 				<div class="clone-container">
 				    <div class="number-container clone"></div>
@@ -617,7 +617,12 @@
 				</div>
 				<span class="h0 c6 emphasize">Not all ordinals are good to bound a computation time:</span>
 				<canvas class="omegaForPlusUn" width="5000" height="100" ></canvas>
-				<div title="Admissibility" class="definition h0 c7">We say that \(\alpha\) is admissible if for all \(\alpha\)-computable function \(f:\beta<\alpha\to\alpha\), we have \(\lim_{\gamma<\beta} f(\gamma)<\alpha\)</div>
+				<div title="Admissibility" class="definition h0 c7">
+				    <p>
+					We say that \(\alpha\) is admissible if for all \(\alpha\)-computable function \(f:\beta<\alpha\to\alpha\), we have \(\lim_{\gamma<\beta} f(\gamma)<\alpha\)
+				    </p>
+				    <p> In other words, given \(\beta<\alpha\) tasks to do, each task taking less than \(\alpha\) steps to do, we can do all tasks without running short in time.</p>
+				</div>
 				<span></span>
 				<!-- <ul><li>Temps Fixé</li><li>Historique complet</li><li>Mauvaise relativisation</li></ul> -->
 			    </div>
