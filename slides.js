@@ -1291,7 +1291,7 @@ let weihrauchIntro = new Slide("weihrauch-intro", (slide, engine, presentation) 
 	    // this.p3p.elem.style.borderColor = "lightGrey";
 	}, 1500);
 	setTimeout(() => {
-	    this.p4p.elem.style.borderColor = "lightGrey";
+	    this.p3p.elem.style.borderColor = "lightGrey";
 	}, 2000);
 	setTimeout(() => {
 	    this.p1p.elem.style.borderColor = "lightGrey";
