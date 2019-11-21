@@ -653,23 +653,23 @@ let hindmanItself = new Slide("hindman-itself", (slide, engine, presentation) =>
     slide.query(".coloring").style.visibility = "hidden";
 }, [
     // 1 : Premier exemple de coloriage
-    (slide, engine, presentation) => {
-	slide.query(".color-word").classList.add("emphasize");
-	slide.query(".list-color").innerHTML = "in <span style=\"color:red\">red</span> and <span style=\"color:blue\">blue</span>";
-	slide.queryAll(".number").forEach((number) => {
-	    number.style.color = ["blue", "red"][Math.floor(Math.random()*2)];
-	});	
-	slide.query(".coloring").style.visibility = "visible";
-    },
-    // 2 : Deuxième exemple de coloriage
-    (slide, engine, presentation) => {
-	slide.query(".list-color").innerHTML = "in <span style=\"color:red\">red</span>, <span style=\"color:blue\">blue</span> and <span style=\"color:darkgreen\">green</span>";
-	slide.queryAll(".number").forEach((number) => {
-	    number.style.color = ["blue", "red", "darkgreen"][Math.floor(Math.random()*3)];
-	});	
-    },
+    // (slide, engine, presentation) => {
+    // 	slide.query(".list-color").innerHTML = "in <span style=\"color:red\">red</span> and <span style=\"color:blue\">blue</span>";
+    // 	slide.queryAll(".number").forEach((number) => {
+    // 	    number.style.color = ["blue", "red"][Math.floor(Math.random()*2)];
+    // 	});	
+    // 	slide.query(".coloring").style.visibility = "visible";
+    // },
+    // // 2 : Deuxième exemple de coloriage
+    // (slide, engine, presentation) => {
+    // 	slide.query(".list-color").innerHTML = "in <span style=\"color:red\">red</span>, <span style=\"color:blue\">blue</span> and <span style=\"color:darkgreen\">green</span>";
+    // 	slide.queryAll(".number").forEach((number) => {
+    // 	    number.style.color = ["blue", "red", "darkgreen"][Math.floor(Math.random()*3)];
+    // 	});	
+    // },
     // 3 : Exemple pour la suite
     (slide, engine, presentation) => {
+	slide.query(".color-word").classList.add("emphasize");
 	slide.query(".list-color").innerHTML = "in <span style=\"color:red\">red</span> and <span style=\"color:blue\">blue</span>";
 	slide.queryAll(".number").forEach((number, index) => {
 	    number.style.color = ['blue', 'blue', 'red', 'red',  'red',  'red', 'blue', 'blue', 'blue', 'red',  'blue', 'blue', 'blue', 'red',  'blue', 'red',  'blue', 'blue', 'blue', 'blue', 'red',  'blue', 'blue', 'blue', 'red',  'red',  'blue', 'red', 'blue', 'blue', 'blue', 'red',  'red'][number.classList[1].slice(1)];
@@ -707,9 +707,9 @@ let hindmanItself = new Slide("hindman-itself", (slide, engine, presentation) =>
 	slide.query(".sigma-container").style.left= "30%";
 	setTimeout(() => { slide.query(".cloneclone").style.top = "0"; },0);
 	slide.query(".sigma-container").style.opacity = "1";
-    },
-    // 7 : Apparition des sommes finies (7+10)
-    (slide, engine, presentation) => {
+    // },
+    // // 7 : Apparition des sommes finies (7+10)
+    // (slide, engine, presentation) => {
 	slide.query(".cloneclone").querySelectorAll(".number").forEach((elem) => {elem.style.visibility="hidden";});
 	slide.query(".cloneclone").querySelectorAll(".number")[7].style.visibility="visible";
 	slide.query(".cloneclone").querySelectorAll(".number")[10].style.visibility="visible";

@@ -466,7 +466,7 @@
 			    <!-- <div class="titre">Trois types de calculs en temps infini</div> -->
 			    <div class="slide-body-container">
 				<h1 style="text-align:center">Three types of infinite time computations</h1>
-				<div style="height:1140px;"></div>
+				<div style="height:1050px;"></div>
 				<div class="block h0 c1" title="Conclusion">
 				    <ul>
 					<li>We defined several notions of infinite computations:
@@ -506,23 +506,29 @@
 					$$ L_{\color{red}\lambda}\prec_1 L_{\color{blue}\zeta} \prec_2 L_{\color{green}\Sigma}$$
 					Then:
 					<ul>
-					    <li><span class="lambda">\(\lambda\)</span> is the supremum of the <span class="lambda">halting times</span> and of the <span class="lambda">writable ordinals</span> by an ITTM</li>
-					    <li><span class="zeta">\(\zeta\)</span> is the supremum of the <span class="zeta">stabilisation times</span> and of the <span class="zeta">eventually writable ordinals</span> by an ITTM</li>
-					    <li><span class="Sigma">\(\Sigma\)</span> is the supremum of the <span class="Sigma">loopless times</span>, and of the <span class="Sigma">accidentally writable ordinals</span> by an ITTM</li>
+					<li><span class="lambda">\(\lambda\)</span>-computability and writability coincide</li>
+					<li><span class="zeta">\(\zeta\)</span>-computability and eventual writability coincide</li>
+					<li><span class="Sigma">\(\Sigma\)</span>-computability and accidental writability coincide</li>
+					    <!-- <li><span class="lambda">\(\lambda\)</span> is the supremum of the <span class="lambda">halting times</span> and of the <span class="lambda">writable ordinals</span> by an ITTM</li>
+						 <li><span class="zeta">\(\zeta\)</span> is the supremum of the <span class="zeta">stabilisation times</span> and of the <span class="zeta">eventually writable ordinals</span> by an ITTM</li>
+						 <li><span class="Sigma">\(\Sigma\)</span> is the supremum of the <span class="Sigma">loopless times</span>, and of the <span class="Sigma">accidentally writable ordinals</span> by an ITTM</li> -->
 					</ul>
 				    </div>
 				    <div title="Welch (2000)" class="theorem lambda-zeta-sigma-2" style="display:none">Let <span class="lambda">\(\lambda^x\)</span>, <span class="zeta">\(\zeta^x\)</span> and <span class="Sigma">\(\Sigma^x\)</span> be the lexicographically least triplet of ordinals such that:
 					$$ L_{\color{red}\lambda^x}[x]\prec_1 L_{\color{blue}\zeta^x}[x] \prec_2 L_{\color{green}\Sigma^x}[x]$$
 					Then:
 					<ul>
-					    <li><span class="lambda">\(\lambda^x\)</span> is the supremum of the <span class="lambda">halting times</span> and of the <span class="lambda">writable ordinals</span> by an ITTM relative to \(x\).</li>
-					    <li><span class="zeta">\(\zeta^x\)</span> is the supremum of the <span class="zeta">stabilisation times</span> and of the <span class="zeta">eventually writable ordinals</span> by an ITTM relative to \(x\).</li>
-					    <li><span class="Sigma">\(\Sigma^x\)</span> is the supremum of the <span class="Sigma">loopless times</span>, and of the <span class="Sigma">accidentally writable ordinals</span> by an ITTM relative to \(x\).</li>
+					<li><span class="lambda">\(\lambda^x\)</span>-computability relative to \(x\) and writability relative to \(x\) coincide</li>
+					<li><span class="zeta">\(\zeta^x\)</span>-computability relative to \(x\) and eventual writability relative to \(x\) coincide</li>
+					<li><span class="Sigma">\(\Sigma\)</span>-computability relative to \(x\) and accidental writability relative to \(x\) coincide</li>
+					    <!-- <li><span class="lambda">\(\lambda^x\)</span> is the supremum of the <span class="lambda">halting times</span> and of the <span class="lambda">writable ordinals</span> by an ITTM relative to \(x\).</li>
+						 <li><span class="zeta">\(\zeta^x\)</span> is the supremum of the <span class="zeta">stabilisation times</span> and of the <span class="zeta">eventually writable ordinals</span> by an ITTM relative to \(x\).</li>
+						 <li><span class="Sigma">\(\Sigma^x\)</span> is the supremum of the <span class="Sigma">loopless times</span>, and of the <span class="Sigma">accidentally writable ordinals</span> by an ITTM relative to \(x\).</li> -->
 					</ul>
 				    </div>
 				</div>
 				<!-- <ul><li>Temps dépendant de l'entrée</li><li>Historique incomplet</li><li>Bonne relativisation</li></ul> -->
-				<div class="theorem h0 relation-alpha">
+				<div style="display:none" class="theorem h0 relation-alpha">
 				    <ul>
 					<li><span class="lambda">\(\lambda\)</span>-computability and writability coincide</li>
 					<li><span class="zeta">\(\zeta\)</span>-computability and eventual writability coincide</li>
